@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&family=Pacifico&display=swap');
+
+:root{
+  --c-azul-claro: #7cdaff;
+  --c-azul-escuro: #0a1a6b;
+  --c-amarelo-claro: #fffea6;
+  --c-rosa-claro: #ffb6e3;
+  --c-vermelho-claro: #ff6586;
+
+  --c-back: white;
+
+  --f-titulo: 'Outfit', sans-serif;
+  --f-titulo2: 'Pacifico';
+}
+
+*::selection{
+  background-color: #fffea68a;
+}
+
+body{
+  background-color: var(--c-back);
+  color: var(--c-azul-escuro);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: var(--f-titulo);
+}
+
+#cont-back span{
+  position: absolute;
+  filter: blur(100px) opacity(20%);
+  border-radius: 50%;
+}
+
+#span-back-1{
+  background-color: var(--c-azul-claro);
+  width: 30vw;
+  height: 30vw;
+  top: 20vh;
+  left: -50px;
+}
+
+#span-back-2{
+  background-color: var(--c-amarelo-claro);
+  width: 20vw;
+  height: 20vw;
+  top: 0;
+  right: -3vw;
+}
+
+#span-back-3{
+  background-color: var(--c-rosa-claro);
+  width: 30vw;
+  height: 30vw;
+  top: 100vh;
+  right: 30vw;
+}
+
+#sec-titulo-princ{
+  text-align: center;
+  position: relative;
+  top: 10vh;
+}
+
+#sec-titulo-princ h1{
+  font-size: 80px;
+  font-weight: normal;
+  margin: 20px;
+  padding: 0;
+  position: relative;
+}
+
+h1#titulo-princ-1{
+  font-size: 85px;
+}
+
+#titulo-princ-2{
+  font-family: var(--f-titulo2);
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: var(--c-vermelho-claro);
+  top: -30px;
+}
