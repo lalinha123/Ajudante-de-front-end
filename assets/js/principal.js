@@ -21,5 +21,5 @@ function background(){
 }
 
 window.addEventListener('load', function(e){
-  background();
+  //background();
 });

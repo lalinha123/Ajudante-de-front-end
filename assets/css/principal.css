@@ -1,18 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit&family=Quicksand:wght@500&family=Pacifico&display=swap');
 
 :root{
   --c-azul-claro: #7cdaff;
-  --c-azul-claro-transp:#7cdaff31;
-  --c-roxo-escuro: #410777;
+  --c-azul-claro-transp:#7cdaff1c;
+  --c-roxo-escuro: #320777;
   --c-amarelo-claro: #fffd82;
   --c-verde-claro: #7cffc2;
-  --c-rosa-claro: #ffa3dc;
+  --c-rosa-claro: #ffcaeb;
   --c-vermelho-claro: #ff6586;
 
   --c-back: white;
 
   --f-titulo: 'Outfit', sans-serif;
   --f-titulo2: 'Pacifico';
+  --f-normal: 'Quicksand', sans-serif;
 }
 
 *::selection{
@@ -25,6 +26,7 @@
 
 body{
   background-color: var(--c-back);
+  font-family: var(--f-normal);
   color: var(--c-roxo-escuro);
   margin: 0;
   padding: 0;
@@ -39,10 +41,11 @@ h1, h2, h3, h4, h5, h6{
   position: fixed;
   filter: blur(200px) opacity(20%);
   border-radius: 50%;
+  z-index: -1000;
 }
 
 #span-back-1{
-  background-color: var(--c-azul-claro);
+  background-color: var(--c-rosa-claro);
   width: 30vw;
   height: 30vw;
   top: 20vh;
@@ -58,7 +61,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 #span-back-3{
-  background-color: var(--c-rosa-claro);
+  background-color: var(--c-azul-claro);
   width: 30vw;
   height: 30vw;
   top: 80vh;
