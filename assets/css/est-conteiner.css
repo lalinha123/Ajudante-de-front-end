@@ -1,0 +1,10 @@
+@import 'personalizacao.css';
+
+#div-vis #conteiner{
+  background-color: #f5f5f5;
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  border: 2px dashed #320777;
+  border-radius: 10px;
+}

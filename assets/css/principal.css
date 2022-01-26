@@ -6,7 +6,7 @@
 
   --c-azul-claro: #7cdaff;
   --c-azul-claro-transp:#7cdaff1c;
-  --c-roxo-escuro: #410777;
+  --c-roxo-escuro: #320777;
   --c-amarelo-claro: #fffd82;
   --c-verde-claro: #7cffc2;
   --c-rosa-claro: #ffcaeb;
@@ -29,6 +29,7 @@
 
 body{
   background-color: var(--c-back);
+  background-attachment: fixed;
   font-family: var(--f-normal);
   color: var(--c-roxo-escuro);
   margin: 0;
