@@ -9,10 +9,13 @@
   top: 3vh;
 }
 
-input[type='textbox']{
+input{
   color: var(--c-roxo-escuro);
   font-family: var(--f-normal);
   font-size: 17px;
+}
+
+input[type='textbox']{
   padding: 7px 15px;
   border: 1px solid var(--c-cinza-medio);
   border-radius: 25px;
@@ -20,8 +23,33 @@ input[type='textbox']{
 }
 
 input[type='textbox']:focus{
-  border-color: var(--c-azul-medio);
-  border-width: 2px;
+  outline: 1px solid var(--c-azul-medio);
+}
+
+#div-select-tag{
+  top: 7vh;
+}
+
+select{
+  background-color: var(--c-back);
+  font-size: 17px;
+  width: 15vw;
+  padding: 7px 20px;
+  border: 1px solid var(--c-cinza-medio);
+  border-radius: 20px;
+}
+
+select option{
+  color: var(--c-roxo-escuro);
+  font-family: var(--f-normal);
+  font-size: 17px;
+  border-radius: 10px;
+  padding: 7px 20px;
+  box-shadow: none;
+}
+
+select:hover{
+  cursor: pointer;
 }
 
 .col-left{
@@ -36,7 +64,7 @@ input[type='textbox']:focus{
 
 #sec-princ{
   width: 100%;
-  height: 60vh;
+  height: 70vh;
   position: relative;
   top: 1vh;
   left: 50%;
@@ -44,7 +72,7 @@ input[type='textbox']:focus{
 }
 
 #div-vis{
-  background-color: #fdfdfd;
+  background-color: #fafafa;
   width: 100%;
   height: 100%;
   padding: 5vh 0;
@@ -52,6 +80,25 @@ input[type='textbox']:focus{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.div-config{
+  background-color: var(--c-back);
+  width: 15vw;
+  height: fit-content;
+  border: 1px solid var(--c-cinza-medio);
+  border-radius: 10px;
+  padding: 10px 20px;
+  top: -3.5vh;
+}
+
+.div-config h3{
+  margin: 0;
+}
+
+.div-config hr{
+  border: none;
+  border-bottom: 1px solid var(--c-cinza-claro);
 }
 
 #div-id{

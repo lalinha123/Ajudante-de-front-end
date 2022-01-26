@@ -24,10 +24,35 @@
       <input type='textbox' id="id" value="conteiner" maxlength="45" placeholder="id">
     </div>
 
-    <div class="div-config col-right" id="div-tamanho">
-      <h3>Tamanho do contêiner</h3>
+    <div class="col-left" id="div-select-tag">
+      <h3>Tag</h3>
+      <select name="tag" id="sel-tag">
+        <option value="div">div</option>
+        <option value="section">section</option>
+        <option value="main">main</option>
+        <option value="header">header</option>
+        <option value="aside">aside</option>
+        <option value="article">article</option>
+        <option value="footer">figure</option>
+        <option value="footer">nav</option>
+      </select>
     </div>
-    
+
+    <div class="div-config col-right" id="div-estilo">
+      <section>
+        <h3>Fundo</h3>
+      </section>
+      
+      <hr>
+
+      <section>
+        <h3>Bordas</h3>
+      </section>
+    </div>
+  </section>
+
+  <section id="sec-code">
+    <code></code>
   </section>
   <script src="assets/js/principal.js"></script>
 </body>
