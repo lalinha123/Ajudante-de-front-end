@@ -77,6 +77,8 @@ h1{
   color: var(--c-vermelho-claro);
   font-family: var(--f-titulo2);
   font-weight: normal;
+  position: relative;
+  top: 5vh;
 }
 
 nav{
@@ -107,6 +109,7 @@ nav .float-right a{
 
 nav .float-right a:hover{
   border-bottom: 2px dashed var(--c-vermelho-claro);
+  cursor: pointer;
 }
 
 nav #logo{
