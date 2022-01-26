@@ -68,3 +68,55 @@ h1, h2, h3, h4, h5, h6{
   right: 30vw;
 }
 
+h1{
+  font-size: 60px;
+  text-align: center;
+}
+
+.titulo-princ{
+  color: var(--c-vermelho-claro);
+  font-family: var(--f-titulo2);
+  font-weight: normal;
+}
+
+nav{
+  width: 100vw;
+  padding: 3vh 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+nav a{
+  color: var(--c-roxo-escuro);
+  font-size: 18px;
+  font-family: var(--f-titulo);
+  text-decoration: none;
+  padding: 5px 0;
+  display: inline;
+}
+
+nav .float-right{
+  float: right;
+}
+
+nav .float-right a{
+  float: right;
+  margin-left: 3vw;
+}
+
+nav .float-right a:hover{
+  border-bottom: 2px dashed var(--c-vermelho-claro);
+}
+
+nav #logo{
+  font-size: 20px;
+  font-family: var(--f-titulo2);
+  padding: 5px 8px;
+  border: 2px solid var(--c-vermelho-claro);
+  border-radius: 50%;
+}
+
+nav #logo, nav .float-right{
+  margin: 0 7vw;
+}

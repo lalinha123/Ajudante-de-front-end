@@ -3,19 +3,15 @@
 #sec-titulo{
   text-align: center;
   position: relative;
-  top: 8vh;
+  top: 9vh;
 }
 
 #div-titulo-h1 h1{
-  font-size: 70px;
+  font-size: 60px;
   font-weight: normal;
   margin: 20px;
   padding: 0;
   position: relative;
-}
-
-h1#h1-titulo-1{
-  font-size: 80px;
 }
 
 h1#h1-titulo-2{
