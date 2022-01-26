@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit&family=Quicksand:wght@500&family=Pacifico&display=swap');
 
 :root{
+  --c-cinza-claro: #e6e6e6;
+  --c-cinza-claro-medio: #c4c4c4;
+
   --c-azul-claro: #7cdaff;
   --c-azul-claro-transp:#7cdaff1c;
-  --c-roxo-escuro: #320777;
+  --c-roxo-escuro: #410777;
   --c-amarelo-claro: #fffd82;
   --c-verde-claro: #7cffc2;
   --c-rosa-claro: #ffcaeb;
@@ -71,14 +74,6 @@ h1, h2, h3, h4, h5, h6{
 h1{
   font-size: 60px;
   text-align: center;
-}
-
-.titulo-princ{
-  color: var(--c-vermelho-claro);
-  font-family: var(--f-titulo2);
-  font-weight: normal;
-  position: relative;
-  top: 5vh;
 }
 
 nav{

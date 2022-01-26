@@ -1,0 +1,37 @@
+@import 'principal.css';
+
+.titulo-princ{
+  color: var(--c-vermelho-claro);
+  font-family: var(--f-titulo2);
+  font-weight: normal;
+  position: relative;
+  top: 7vh;
+}
+
+#cont-princ{
+  width: 80vw;
+  position: relative;
+  top: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#cont-grid{
+  width: inherit;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5vw;
+}
+
+#cont-princ section{
+  height: 40vh;
+  padding: 20px;
+}
+
+#cont-vis{
+  width: inherit;
+  height: inherit;
+  /*border: 2px solid var(--c-cinza-claro);*/
+  border-radius: 10px;
+}
