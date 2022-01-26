@@ -3,11 +3,15 @@
 :root{
   --c-cinza-claro: #e6e6e6;
   --c-cinza-claro-medio: #c4c4c4;
+  --c-cinza-medio: #8d8d8d;
 
   --c-azul-claro: #7cdaff;
   --c-azul-claro-transp:#7cdaff1c;
-  --c-roxo-escuro: #320777;
+  --c-azul: #3cb1ff;
+  --c-azul-medio: #2c91f0;
+  --c-roxo-escuro: #230752;
   --c-amarelo-claro: #fffd82;
+  --c-amarelo: #ffeb3b;
   --c-verde-claro: #7cffc2;
   --c-rosa-claro: #ffcaeb;
   --c-vermelho-claro: #ff6586;
