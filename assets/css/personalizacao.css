@@ -27,7 +27,7 @@ input[type='textbox']:focus{
 }
 
 #div-select-tag{
-  top: 7vh;
+  top: 5vh;
 }
 
 select{
@@ -92,8 +92,8 @@ select:hover{
   top: -3.5vh;
 }
 
-.div-config h3{
-  margin: 0;
+h3{
+  margin: 0 0 2vh;
 }
 
 .div-config hr{
@@ -118,5 +118,21 @@ select:hover{
 
 #id::before{
   content: 'aaaa';
+}
+
+#sec-code{
+  width: 80vw;
+  height: 14vh;
+  display: block;
+  position: relative;
+  top: 25vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#sec-code code{
+  background-color: var(--c-roxo-escuro);
+  width: inherit;
+  height: inherit;
 }
 

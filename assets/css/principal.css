@@ -84,7 +84,7 @@ h1{
 nav{
   width: 100vw;
   padding: 3vh 0;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
 }
