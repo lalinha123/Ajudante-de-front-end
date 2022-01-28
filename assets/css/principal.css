@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit&family=Quicksand:wght@500&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?&family=Outfit&family=Roboto+Mono&family=Quicksand:wght@500&family=Pacifico&display=swap');
 
 :root{
   --c-cinza-claro: #e6e6e6;
@@ -7,9 +7,13 @@
 
   --c-azul-claro: #7cdaff;
   --c-azul-claro-transp:#7cdaff1c;
-  --c-azul: #3cb1ff;
-  --c-azul-medio: #2c91f0;
+  --c-azul: #41aad4;
+  --c-azul-medio: #2495c2;
+  --c-azul-medio-escuro: #1678d3;
+  --c-azul-escuro: #0b3a80;
   --c-roxo-escuro: #230752;
+  --c-roxo-medio: #4a2e7a;
+  --c-roxo-claro: #745ec4;
   --c-amarelo-claro: #fffd82;
   --c-amarelo: #ffeb3b;
   --c-verde-claro: #7cffc2;
@@ -17,14 +21,17 @@
   --c-vermelho-claro: #ff6586;
 
   --c-back: white;
+  --c-code-back1: #0b1c41;
+  --c-code-back2: #6cc5e9;
 
   --f-titulo: 'Outfit', sans-serif;
   --f-titulo2: 'Pacifico';
   --f-normal: 'Quicksand', sans-serif;
+  --f-mono: 'Roboto Mono', monospace;
 }
 
 *::selection{
-  background-color: #fffea68a;
+  background-color: #fffec1ce;
 }
 
 *{
@@ -118,6 +125,10 @@ nav #logo{
   padding: 5px 8px;
   border: 2px solid var(--c-vermelho-claro);
   border-radius: 50%;
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
 }
 
 nav #logo, nav .float-right{

@@ -72,7 +72,7 @@ select:hover{
 }
 
 #div-vis{
-  background-color: #fafafa;
+  background-color: #fcfcfc;
   width: 100%;
   height: 100%;
   padding: 5vh 0;
@@ -93,7 +93,11 @@ select:hover{
 }
 
 h3{
-  margin: 0 0 2vh;
+  margin: 0 0 1vh;
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
 }
 
 .div-config hr{
@@ -114,6 +118,10 @@ h3{
   color: var(--c-vermelho-claro);
   font-family: var(--f-titulo2);
   font-size: 30px;
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
 }
 
 #id::before{
@@ -121,18 +129,86 @@ h3{
 }
 
 #sec-code{
-  width: 80vw;
-  height: 14vh;
+  width: 60vw;
+  height: 40vh;
+  margin: 15vh 0 7vh;
   display: block;
   position: relative;
-  top: 25vh;
   left: 50%;
+  top: -7vh;
+  bottom: 0;
   transform: translateX(-50%);
 }
 
-#sec-code code{
-  background-color: var(--c-roxo-escuro);
+#div-code{
+  background-color: var(--c-code-back1);
+  color: white;
   width: inherit;
   height: inherit;
+  border-radius: 10px;
 }
 
+#nav-code{
+  background-color: var(--c-code-back2);
+  width: 100%;
+  display: block;
+}
+
+#nav-code button{
+  background-color: var(--c-code-back2);
+  font-family: var(--f-normal);
+  color: white;
+  font-size: 17px;
+  margin: 0 -4px 0 0;
+  padding: 20px 25px;
+  border: none;
+  border-radius: 0;
+  display: inline;
+}
+
+#nav-code button:hover{
+  background-color: var(--c-code-back1);
+  cursor: pointer;
+}
+
+#nav-code button.aberto{
+  background-color: var(--c-code-back1);
+}
+
+.div-ling-conteudo{
+  font-family: 'Roboto Mono', monospace;
+  font-size: 17px;
+  width: inherit;
+  height: inherit;
+  display: none;
+  grid-template-columns: 5vw 1fr;
+}
+
+.div-ling-conteudo.aberto{
+  background-color: var(--c-code-back1);
+  display: grid;
+}
+
+.div-num-code{
+  text-align: center;
+  padding: 20px;
+}
+
+.div-num-code p{
+  margin: 0 auto;
+  padding: 3px 0;
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+
+.div-tag-code{
+  padding: 20px 0;
+}
+
+.div-tag-code code{
+  font-family: var(--f-mono);
+  padding: 3px 0;
+  display: block;
+}
