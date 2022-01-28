@@ -129,15 +129,11 @@ h3{
 }
 
 #sec-code{
-  width: 60vw;
-  height: 40vh;
-  margin: 15vh 0 7vh;
-  display: block;
+  width: 100%;
+  height: 60vh;
   position: relative;
-  left: 50%;
-  top: -7vh;
-  bottom: 0;
-  transform: translateX(-50%);
+  top: 11vh;
+  display: block;
 }
 
 #div-code{
@@ -145,48 +141,29 @@ h3{
   color: white;
   width: inherit;
   height: inherit;
-  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-#nav-code{
-  background-color: var(--c-code-back2);
-  width: 100%;
-  display: block;
-}
-
-#nav-code button{
-  background-color: var(--c-code-back2);
-  font-family: var(--f-normal);
-  color: white;
-  font-size: 17px;
-  margin: 0 -4px 0 0;
-  padding: 20px 25px;
-  border: none;
-  border-radius: 0;
-  display: inline;
-}
-
-#nav-code button:hover{
-  background-color: var(--c-code-back1);
-  cursor: pointer;
-}
-
-#nav-code button.aberto{
-  background-color: var(--c-code-back1);
+#div-code h2{
+  background-color: var(--c-vermelho-claro);
+  font-size: 25px;
+  width: fit-content;
+  margin: 0;
+  padding: 5px 40px;
+  position: relative;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .div-ling-conteudo{
   font-family: 'Roboto Mono', monospace;
-  font-size: 17px;
+  font-size: 18px;
   width: inherit;
   height: inherit;
-  display: none;
-  grid-template-columns: 5vw 1fr;
-}
-
-.div-ling-conteudo.aberto{
-  background-color: var(--c-code-back1);
   display: grid;
+  grid-template-columns: 5vw 1fr;
 }
 
 .div-num-code{
@@ -195,6 +172,7 @@ h3{
 }
 
 .div-num-code p{
+  color: var(--c-code-back2);
   margin: 0 auto;
   padding: 3px 0;
   -webkit-user-select: none;  

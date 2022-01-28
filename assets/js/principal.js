@@ -1,23 +1,36 @@
 const body = document.querySelector('body');
+let num_linhas_css = 0;
+let num_linhas_html = 0;
 
-function mudaCode(tipo_btn, id_btn){
-  const div_css = document.querySelector('#div-ling-conteudo-css');
-  const div_html = document.querySelector('#div-ling-conteudo-html');
-  const btn_css = document.querySelector('#btn-nav-css');
-  const btn_html = document.querySelector('#btn-nav-html');
-  const div = document.getElementById(`div-ling-conteudo-${tipo_btn}`);
-  const btn = document.getElementById(id_btn);
+function addLinhaCode(tipo_ling, codigo){
+  const tag_code = document.createElement('code');
+  const tag_p = document.createElement('p');
+  let div_num;
+  let div_code;
 
-  div_css.classList.remove('aberto');
-  div_html.classList.remove('aberto');
-  btn_css.classList.remove('aberto');
-  btn_html.classList.remove('aberto');
+  switch (tipo_ling) {
+    case 'css':
+      ++num_linhas_css;
+      tag_p.innerHTML = num_linhas_css;
+      div_num = document.querySelector('#div-num-code-css');
+      div_code = document.querySelector('#div-tag-code-css');
+      break;
+  
+    case 'html':
+      ++num_linhas_html;
+      tag_p.innerHTML = num_linhas_html;
+      div_num = document.querySelector('#div-num-code-html');
+      div_code = document.querySelector('#div-tag-code-html');
+      break;
+  }
 
-  div.classList.add('aberto');
-  btn.classList.add('aberto');
+  tag_code.innerHTML = codigo;
+
+  div_num.appendChild(tag_p);
+  div_code.appendChild(tag_code);
 }
 
-
+addLinhaCode('html', 'oi');
 
 function navbar(){
   const nav = document.createElement('nav');

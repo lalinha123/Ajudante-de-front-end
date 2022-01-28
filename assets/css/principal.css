@@ -14,14 +14,14 @@
   --c-roxo-escuro: #230752;
   --c-roxo-medio: #4a2e7a;
   --c-roxo-claro: #745ec4;
-  --c-amarelo-claro: #fffd82;
+  --c-amarelo-claro: #fffd9f;
   --c-amarelo: #ffeb3b;
   --c-verde-claro: #7cffc2;
   --c-rosa-claro: #ffcaeb;
   --c-vermelho-claro: #ff6586;
 
   --c-back: white;
-  --c-code-back1: #0b1c41;
+  --c-code-back1: #093c66; /*#0b1c41*/
   --c-code-back2: #6cc5e9;
 
   --f-titulo: 'Outfit', sans-serif;
