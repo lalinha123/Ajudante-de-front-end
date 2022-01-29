@@ -1,4 +1,5 @@
 const body = document.querySelector('body');
+let id_conteiner = document.querySelector('#id');
 let num_linhas_css = 0;
 let num_linhas_html = 0;
 
@@ -14,14 +15,12 @@ function addLinhaCode(tipo_ling, codigo){
       tag_p.innerHTML = num_linhas_css;
       div_num = document.querySelector('#div-num-code-css');
       div_code = document.querySelector('#div-tag-code-css');
-      break;
   
     case 'html':
       ++num_linhas_html;
       tag_p.innerHTML = num_linhas_html;
       div_num = document.querySelector('#div-num-code-html');
       div_code = document.querySelector('#div-tag-code-html');
-      break;
   }
 
   tag_code.innerHTML = codigo;
@@ -30,7 +29,15 @@ function addLinhaCode(tipo_ling, codigo){
   div_code.appendChild(tag_code);
 }
 
-addLinhaCode('html', 'oi');
+function criaCodigo(){
+  addLinhaCode('html', 'id');
+  addLinhaCode('html', '}');
+}
+
+
+document.querySelector('#id').addEventListener('change', function(){
+  criaCodigo();
+});
 
 function navbar(){
   const nav = document.createElement('nav');
