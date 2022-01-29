@@ -1,42 +1,44 @@
 const body = document.querySelector('body');
+let tag_nome = 'conteiner';
 let id_conteiner = document.querySelector('#id');
 let num_linhas_css = 0;
 let num_linhas_html = 0;
 
-function addLinhaCode(tipo_ling, codigo){
-  const tag_code = document.createElement('code');
-  const tag_p = document.createElement('p');
-  let div_num;
-  let div_code;
+function criaCodigo(ling, tipo, nome, valor){
+  let code_tag_css = document.querySelector('#code-bloco-css');
+  code_tag_css.innerHTML = '';
 
-  switch (tipo_ling) {
-    case 'css':
-      ++num_linhas_css;
-      tag_p.innerHTML = num_linhas_css;
-      div_num = document.querySelector('#div-num-code-css');
-      div_code = document.querySelector('#div-tag-code-css');
-  
-    case 'html':
-      ++num_linhas_html;
-      tag_p.innerHTML = num_linhas_html;
-      div_num = document.querySelector('#div-num-code-html');
-      div_code = document.querySelector('#div-tag-code-html');
+  function criaCodCss(){
+    switch (tipo) {
+      case  'seletor':
+        if(valor === ''){
+          tag_nome = `${document.querySelector('#sel-tag').value}`;
+        }
+        else if(valor != ''){
+          tag_nome = `#${valor}`;
+        }
+
+        code_tag_css.innerHTML += `${tag_nome} {`;
+        break;
+    }
+
+    code_tag_css.innerHTML += '<br /> }';
   }
 
-  tag_code.innerHTML = codigo;
-
-  div_num.appendChild(tag_p);
-  div_code.appendChild(tag_code);
-}
-
-function criaCodigo(){
-  addLinhaCode('html', 'id');
-  addLinhaCode('html', '}');
+  switch (ling) {
+    case 'css':
+      criaCodCss();
+      break;
+  }
 }
 
 
 document.querySelector('#id').addEventListener('change', function(){
-  criaCodigo();
+  criaCodigo('css', 'seletor', 'id', document.querySelector('#sel-tag').value);
+});
+
+document.querySelector('#sel-tag').addEventListener('change', function(){
+  criaCodigo('css', 'seletor', 'tag', document.querySelector('#id').value);
 });
 
 function navbar(){
@@ -61,5 +63,6 @@ function navbar(){
 }
 
 window.addEventListener('load', function(e){
+  criaCodigo('css', 'seletor', 'id', document.querySelector('#id').value);
   navbar();
 });
