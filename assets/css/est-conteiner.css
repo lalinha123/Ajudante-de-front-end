@@ -4,6 +4,7 @@
   background-color: white;
   width: 300px;
   height: 300px;
-  border: 2px dashed #320777;
+  border-width: 2px;
+  border-color: #320777;
   border-radius: 10px;
 }

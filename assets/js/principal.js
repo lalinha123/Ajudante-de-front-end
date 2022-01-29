@@ -1,23 +1,37 @@
 const body = document.querySelector('body');
+const conteiner = document.querySelector('#conteiner');
+let codigo_css;
 let nome_conteiner;
 let num_linhas_css = 0;
 let num_linhas_html = 0;
 
-function criaCodigo(ling, tipo){
-  let code_tag_css = document.querySelector('#code-bloco-css');
-  code_tag_css.innerHTML = '';
+function criaLinha(ling, tipo, nome, valor){
+  codigo_css = '';
 
   function criaCodCss(){
-    if(document.querySelector('#id').value === ''){
-      nome_conteiner = document.querySelector('#sel-tag').value;
-    }
+    switch (tipo) {
+      case 'seletor':
+        if(document.querySelector('#id').value === ''){
+          nome_conteiner = document.querySelector('#sel-tag').value;
+        }
 
-    else{
-      nome_conteiner = `#${document.querySelector('#id').value}`;
-    }
+        else{
+          nome_conteiner = `#${document.querySelector('#id').value}`;
+        }
 
-    code_tag_css.innerHTML += `${nome_conteiner} {`;
-    code_tag_css.innerHTML += '<br /> }';
+        codigo_css = `${nome_conteiner} {` + codigo_css;
+        break;
+
+      case 'atributo':
+        switch (nome) {
+          case 'border-style':
+            conteiner.style.borderStyle = valor;
+            break;
+        }
+
+        codigo_css = `<br />${nome}: ${valor};`;
+        break;
+    }
   }
 
   switch (ling) {
@@ -27,13 +41,23 @@ function criaCodigo(ling, tipo){
   }
 }
 
+function criaCodigo(ling){
+  switch (ling) {
+    case 'css':
+      criaLinha('css', 'atributo', 'border-style', 'dotted');
+      criaLinha('css', 'seletor');
+      codigo_css += '<br /> }';
+      document.querySelector('#code-bloco-css').innerHTML = codigo_css;
+      break;
+  }
+}
 
 document.querySelector('#id').addEventListener('change', function(){
-  criaCodigo('css', 'seletor');
+  criaCodigo('css');
 });
 
 document.querySelector('#sel-tag').addEventListener('change', function(){
-  criaCodigo('css', 'seletor');
+  criaCodigo('css');
 });
 
 function navbar(){
@@ -58,6 +82,6 @@ function navbar(){
 }
 
 window.addEventListener('load', function(e){
-  criaCodigo('css', 'seletor');
+  criaCodigo('css');
   navbar();
 });
