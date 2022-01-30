@@ -6,6 +6,7 @@ const border = {
   tam: '2px',
 };
 let codigo_css;
+let codigo_html;
 let nome_conteiner;
 let num_linhas_css = 0;
 let num_linhas_html = 0;
@@ -41,9 +42,17 @@ function criaLinha(ling, tipo, nome, valor){
     }
   }
 
+  function criaCodHtml(){
+    codigo_html = `<${nome_conteiner}>`;
+  }
+
   switch (ling) {
     case 'css':
       criaCodCss();
+      break;
+
+    case 'html':
+      criaCodHtml();
       break;
   }
 }
@@ -68,6 +77,10 @@ function criaCodigo(ling){
       criaAtributos();
       codigo_css += '<br /> }';
       document.querySelector('#code-bloco-css').innerHTML = codigo_css;
+      break;
+
+    case 'html':
+      document.querySelector('#code-bloco-html').innerHTML = codigo_html;
       break;
   }
 }
