@@ -1,13 +1,16 @@
 const body = document.querySelector('body');
 const conteiner = document.querySelector('#conteiner');
+const border = {
+  estilo: 'dashed',
+  cor: '#320777',
+  tam: '2px',
+};
 let codigo_css;
 let nome_conteiner;
 let num_linhas_css = 0;
 let num_linhas_html = 0;
 
 function criaLinha(ling, tipo, nome, valor){
-  codigo_css = '';
-
   function criaCodCss(){
     switch (tipo) {
       case 'seletor':
@@ -19,17 +22,21 @@ function criaLinha(ling, tipo, nome, valor){
           nome_conteiner = `#${document.querySelector('#id').value}`;
         }
 
-        codigo_css = `${nome_conteiner} {` + codigo_css;
+        codigo_css = `${nome_conteiner} {`;
         break;
 
       case 'atributo':
         switch (nome) {
           case 'border-style':
-            conteiner.style.borderStyle = valor;
+            border.estilo = valor;
+            break;
+
+          case 'border-color':
+            border.cor = valor;
             break;
         }
 
-        codigo_css = `<br />${nome}: ${valor};`;
+        codigo_css += `<br />${nome}: ${valor};`;
         break;
     }
   }
@@ -41,11 +48,24 @@ function criaLinha(ling, tipo, nome, valor){
   }
 }
 
+function mudaConteiner(){
+  conteiner.style.borderStyle = border.estilo;
+  conteiner.style.borderColor = border.cor;
+}
+
+function criaAtributos(){
+  criaLinha('css', 'atributo', 'border-style', border.estilo);
+  criaLinha('css', 'atributo', 'border-color', border.cor);
+}
+
 function criaCodigo(ling){
+  mudaConteiner();
+  document.querySelector('#code-bloco-css').innerHTML = '';
+
   switch (ling) {
     case 'css':
-      criaLinha('css', 'atributo', 'border-style', 'dotted');
       criaLinha('css', 'seletor');
+      criaAtributos();
       codigo_css += '<br /> }';
       document.querySelector('#code-bloco-css').innerHTML = codigo_css;
       break;
