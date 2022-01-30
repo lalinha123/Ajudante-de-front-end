@@ -5,25 +5,29 @@ const border = {
   cor: '#320777',
   tam: '2px',
 };
-let codigo_css;
-let codigo_html;
-let nome_conteiner;
+let codigo_css = '';
+let codigo_html = '';
 let num_linhas_css = 0;
 let num_linhas_html = 0;
 
 function criaLinha(ling, tipo, nome, valor){
+  let nome_tag = document.querySelector('#sel-tag').value;
+  let id = document.querySelector('#id').value.replaceAll(' ', '-',);
+  id = id.replaceAll('.', '',);
+  id = id.replaceAll(',', '',);
+  id = id.replaceAll('#', '',);
+
   function criaCodCss(){
     switch (tipo) {
       case 'seletor':
-        if(document.querySelector('#id').value === ''){
-          nome_conteiner = document.querySelector('#sel-tag').value;
+        if(id === ''){
+          codigo_css = `${nome_tag} {`;
         }
 
         else{
-          nome_conteiner = `#${document.querySelector('#id').value}`;
+          codigo_css = `#${id} {`;
         }
 
-        codigo_css = `${nome_conteiner} {`;
         break;
 
       case 'atributo':
@@ -37,13 +41,21 @@ function criaLinha(ling, tipo, nome, valor){
             break;
         }
 
-        codigo_css += `<br />${nome}: ${valor};`;
+        codigo_css += `<br />`;
+        codigo_css += `${nome}: ${valor};`;
         break;
     }
   }
 
   function criaCodHtml(){
-    codigo_html = `<${nome_conteiner}>`;
+    codigo_html += `&lt;${nome_tag}`;
+
+    if(id != ''){
+      codigo_html += ` id="${id}"`;
+    }
+
+    codigo_html += `&gt;`;
+    codigo_html += `&lt;/${nome_tag}&gt;`;
   }
 
   switch (ling) {
@@ -69,7 +81,6 @@ function criaAtributos(){
 
 function criaCodigo(ling){
   mudaConteiner();
-  document.querySelector('#code-bloco-css').innerHTML = '';
 
   switch (ling) {
     case 'css':
@@ -80,6 +91,8 @@ function criaCodigo(ling){
       break;
 
     case 'html':
+      codigo_html = '';
+      criaLinha('html', '');
       document.querySelector('#code-bloco-html').innerHTML = codigo_html;
       break;
   }
@@ -87,10 +100,12 @@ function criaCodigo(ling){
 
 document.querySelector('#id').addEventListener('change', function(){
   criaCodigo('css');
+  criaCodigo('html');
 });
 
 document.querySelector('#sel-tag').addEventListener('change', function(){
   criaCodigo('css');
+  criaCodigo('html');
 });
 
 function navbar(){
@@ -116,5 +131,6 @@ function navbar(){
 
 window.addEventListener('load', function(e){
   criaCodigo('css');
+  criaCodigo('html');
   navbar();
 });

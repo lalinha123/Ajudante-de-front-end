@@ -155,6 +155,10 @@ h3{
   top: -10px;
   left: 50%;
   transform: translateX(-50%);
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
 }
 
 .div-ling-conteudo{
