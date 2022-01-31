@@ -2,7 +2,7 @@ const body = document.querySelector('body');
 const conteiner = document.querySelector('#conteiner');
 const border = {
   estilo: 'dashed',
-  cor: '#320777',
+  cor: '#000',
   tam: '2px',
 };
 let codigo_css = '';
@@ -21,11 +21,11 @@ function criaLinha(ling, tipo, nome, valor){
     switch (tipo) {
       case 'seletor':
         if(id === ''){
-          codigo_css = `${nome_tag} {`;
+          codigo_css = `<code class="sel-css">${nome_tag}</code> {`;
         }
 
         else{
-          codigo_css = `#${id} {`;
+          codigo_css = `<code class="sel-css id-css">#${id}</code> {`;
         }
 
         break;
@@ -38,11 +38,18 @@ function criaLinha(ling, tipo, nome, valor){
 
           case 'border-color':
             border.cor = valor;
+            let cor = getComputedStyle(document.documentElement).getPropertyValue('--c-roxo-escuro');
+
+            if(valor.charAt(cor.length - 2) >= 0 || valor.charAt(cor.length - 1) >= 0){
+              cor = 'white';
+            }
+
+            valor = `<code class="atr-cor-css" style="background-color: ${valor}; color: ${cor}">${valor}</code>`;
             break;
         }
 
         codigo_css += `<br />`;
-        codigo_css += `${nome}: ${valor};`;
+        codigo_css += `<code class="linha-css"><code class="atr-css">${nome}:</code> ${valor};</code>`;
         break;
     }
   }

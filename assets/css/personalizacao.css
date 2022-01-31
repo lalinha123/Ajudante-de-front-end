@@ -191,3 +191,26 @@ h3{
   display: block;
   padding: 20px 0;
 }
+
+.code-bloco code{
+  font-family: var(--f-mono);
+}
+
+
+.code-bloco code.linha-css{
+  margin-left: 30px;
+}
+
+.code-bloco .sel-css{
+  color: var(--c-rosa-claro);
+}
+
+.code-bloco .id-css{
+  font-style: italic;
+}
+
+
+.code-bloco code.linha-css .atr-css{
+  color: var(--c-turq-claro);
+}
+

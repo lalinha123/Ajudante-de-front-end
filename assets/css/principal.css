@@ -5,23 +5,21 @@
   --c-cinza-claro-medio: #c4c4c4;
   --c-cinza-medio: #8d8d8d;
 
-  --c-azul-claro: #7cdaff;
+  --c-azul-claro: #80dbff;
   --c-azul-claro-transp:#7cdaff1c;
-  --c-azul: #41aad4;
-  --c-azul-medio: #2495c2;
-  --c-azul-medio-escuro: #1678d3;
+  --c-azul: #21befc;
+  --c-azul-medio: #0096ec;
   --c-azul-escuro: #0b3a80;
   --c-roxo-escuro: #230752;
-  --c-roxo-medio: #4a2e7a;
-  --c-roxo-claro: #745ec4;
+  --c-rosa-claro: #ffcbee;
+  --c-vermelho-claro: #ff6f8e;
   --c-amarelo-claro: #fffd9f;
   --c-amarelo: #ffeb3b;
   --c-verde-claro: #7cffc2;
-  --c-rosa-claro: #ffcaeb;
-  --c-vermelho-claro: #ff6586;
+  --c-turq-claro: #5efff7;
 
   --c-back: white;
-  --c-code-back1: #093c66; /*#0b1c41*/
+  --c-code-back1: #093c66;
   --c-code-back2: #6cc5e9;
 
   --f-titulo: 'Outfit', sans-serif;
