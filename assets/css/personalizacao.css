@@ -192,6 +192,10 @@ h3{
   padding: 20px 0;
 }
 
+#code-bloco-html{
+  color: var(--c-turq-claro);
+}
+
 .code-bloco code{
   font-family: var(--f-mono);
 }
@@ -206,11 +210,27 @@ h3{
 }
 
 .code-bloco .id-css{
+  color: var(--c-amarelo);
   font-style: italic;
+}
+
+.code-bloco .tag-html{
+  color: var(--c-rosa-claro);
+}
+
+.code-bloco .atr-html{
+  color: var(--c-amarelo);
+  font-style: italic;
+}
+
+.code-bloco .atr-valor-html{
+  color: white;
 }
 
 
 .code-bloco code.linha-css .atr-css{
   color: var(--c-turq-claro);
 }
+
+
 
