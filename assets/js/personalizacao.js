@@ -106,10 +106,6 @@ function criaCodigo(ling){
   document.querySelector('#code-bloco-html').innerHTML = codigo_html;
 }
 
-document.querySelector('#id').addEventListener('keypress', function(){
-  criaCodigo();
-});
-
 document.querySelector('#id').addEventListener('change', function(){
   criaCodigo();
 });

@@ -69,6 +69,7 @@ select:hover{
   top: 1vh;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 9;
 }
 
 #div-vis{
@@ -159,6 +160,7 @@ h3{
   -moz-user-select: none;    
   -ms-user-select: none;      
   user-select: none;
+  z-index: 10;
 }
 
 .div-ling-conteudo{
@@ -190,6 +192,15 @@ h3{
   line-height: 30px;
   display: block;
   padding: 20px 0;
+}
+
+.div-config-code{
+  background-color: var(--c-code-back1-transp);
+  width: 50%;
+  height: 7vh;
+  position: fixed;
+  bottom: 0;
+  z-index: 0;
 }
 
 #code-bloco-html, #code-bloco-css{
