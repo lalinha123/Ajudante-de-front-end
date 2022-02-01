@@ -10,7 +10,7 @@ let codigo_html = '';
 let num_linhas_css = 0;
 let num_linhas_html = 0;
 
-function criaLinha(ling, tipo, nome, valor){
+function criaLinha(ling, cod_tipo, tipo, nome, valor){
   let nome_tag = document.querySelector('#sel-tag').value;
   let id = document.querySelector('#id').value.replaceAll(' ', '-',);
   id = id.replaceAll('.', '',);
@@ -31,29 +31,44 @@ function criaLinha(ling, tipo, nome, valor){
         break;
 
       case 'atributo':
-        switch (nome) {
-          case 'border-style':
-            border.estilo = valor;
+        switch (cod_tipo) {
+          case 'reduzido':
+            switch (nome) {
+              case 'border':
+                codigo_css += `<br />`;
+                codigo_css += `<code class="linha-css"><code class="atr-css">${nome}:</code> <code class="atr-valor-css">${border.tamanho} ${border.estilo} ${border.cor}</code>;</code>`;
+                break;
+            }
             break;
+        
+          case 'normal':
+            switch (nome) {
+              case 'border-style':
+                border.estilo = valor;
+                break;
 
-          case 'border-color':
-            border.cor = valor;
-            let cor = getComputedStyle(document.documentElement).getPropertyValue('--c-code-back1');
+              case 'border-color':
+                border.cor = valor;
+                let cor = getComputedStyle(document.documentElement).getPropertyValue('--c-code-back1');
 
-            if(valor.charAt(cor.length - 2) >= 0 || valor.charAt(cor.length - 1) >= 0){
-              cor = 'white';
+                if(valor.charAt(cor.length - 2) >= 0 || valor.charAt(cor.length - 1) >= 0){
+                  cor = 'white';
+                }
+
+                valor = `<code class="atr-valor-css" style="background-color: ${valor}; color: ${cor}">${valor}</code>`;
+                break;
+
+              case 'border-width':
+                border.tamanho = valor;
+                break;
             }
 
-            valor = `<code class="atr-valor-css" style="background-color: ${valor}; color: ${cor}">${valor}</code>`;
+            codigo_css += `<br />`;
+            codigo_css += `<code class="linha-css"><code class="atr-css">${nome}:</code> <code class="atr-valor-css">${valor}</code>;</code>`;
             break;
-
-          case 'border-width':
-            border.tamanho = valor;
         }
 
-        codigo_css += `<br />`;
-        codigo_css += `<code class="linha-css"><code class="atr-css">${nome}:</code> <code class="atr-valor-css">${valor}</code>;</code>`;
-        break;
+      break;
     }
   }
 
@@ -88,15 +103,23 @@ function mudaConteiner(){
 }
 
 function criaAtrCss(){
-  criaLinha('css', 'atributo', 'border-style', border.estilo);
-  criaLinha('css', 'atributo', 'border-color', border.cor);
-  criaLinha('css', 'atributo', 'border-width', border.tamanho);
+  if(document.querySelector('#cbx-red-css').checked){
+    criaLinha('css', 'reduzido', 'atributo', 'border');
+  }
+
+  else{
+    criaLinha('css', 'normal', 'atributo', 'border-style', border.estilo);
+    criaLinha('css', 'normal', 'atributo', 'border-color', border.cor);
+    criaLinha('css', 'normal', 'atributo', 'border-width', border.tamanho);
+  }
+  
 }
 
 function criaCodigo(ling){
   mudaConteiner();
 
-  criaLinha('css', 'seletor');
+  codigo_css = '';
+  criaLinha('css', 'normal', 'seletor');
   criaAtrCss();
   codigo_css += '<br /> }';
   document.querySelector('#code-bloco-css').innerHTML = codigo_css;
@@ -115,6 +138,10 @@ document.querySelector('#sel-tag').addEventListener('change', function(){
 });
 
 document.querySelector('#sel-borda').addEventListener('change', function(){
+  criaCodigo();
+});
+
+document.querySelector('#cbx-red-css').addEventListener('change', function(){
   criaCodigo();
 });
 
