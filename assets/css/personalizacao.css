@@ -150,7 +150,7 @@ h3{
   font-size: 25px;
   width: fit-content;
   margin: 0;
-  padding: 5px 40px;
+  padding: 5px 30px;
   position: relative;
   top: -10px;
   left: 50%;
@@ -192,7 +192,7 @@ h3{
   padding: 20px 0;
 }
 
-#code-bloco-html{
+#code-bloco-html, #code-bloco-css{
   color: var(--c-turq-claro);
 }
 
@@ -200,37 +200,23 @@ h3{
   font-family: var(--f-mono);
 }
 
-
 .code-bloco code.linha-css{
   margin-left: 30px;
 }
 
-.code-bloco .sel-css{
+.code-bloco .tag-html, .code-bloco .sel-css{
   color: var(--c-rosa-claro);
 }
 
-.code-bloco .id-css{
+.code-bloco .atr-css{
+  color: var(--c-azul-claro);
+}
+
+.code-bloco .id-css, .code-bloco .atr-html{
   color: var(--c-amarelo);
   font-style: italic;
 }
 
-.code-bloco .tag-html{
-  color: var(--c-rosa-claro);
-}
-
-.code-bloco .atr-html{
-  color: var(--c-amarelo);
-  font-style: italic;
-}
-
-.code-bloco .atr-valor-html{
+.code-bloco .atr-valor-html, .code-bloco .atr-valor-css{
   color: white;
 }
-
-
-.code-bloco code.linha-css .atr-css{
-  color: var(--c-turq-claro);
-}
-
-
-
