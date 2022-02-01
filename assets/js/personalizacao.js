@@ -1,14 +1,32 @@
 const conteiner = document.querySelector('#conteiner');
 const border = {
   estilo: 'dashed',
-  cor: '#230752',
+  cor: '#320777',
   tamanho: '2px',
 };
-let tipo_codigo = 'normal';
 let codigo_css = '';
 let codigo_html = '';
 let num_linhas_css = 0;
 let num_linhas_html = 0;
+let cor_fonte_border;
+
+function analisaCor(cor_valor, nome){
+  let cor;
+
+  if(cor_valor.charAt(cor_valor.length - 2) >= 0 || cor_valor.charAt(cor_valor.length - 1) >= 0){
+    cor = 'white';
+  }
+
+  else{
+    cor = getComputedStyle(document.documentElement).getPropertyValue('--c-code-back1');
+  }
+
+  switch (nome) {
+    case 'border':
+      cor_fonte_border = cor;
+      break;
+  }
+}
 
 function criaLinha(ling, cod_tipo, tipo, nome, valor){
   let nome_tag = document.querySelector('#sel-tag').value;
@@ -35,8 +53,12 @@ function criaLinha(ling, cod_tipo, tipo, nome, valor){
           case 'reduzido':
             switch (nome) {
               case 'border':
+                analisaCor(border.cor, 'border');
                 codigo_css += `<br />`;
-                codigo_css += `<code class="linha-css"><code class="atr-css">${nome}:</code> <code class="atr-valor-css">${border.tamanho} ${border.estilo} ${border.cor}</code>;</code>`;
+                codigo_css += `<code class="linha-css"><code class="atr-css">${nome}:</code>
+                <code class="atr-valor-css">${border.tamanho} ${border.estilo}
+                <code class="atr-valor-css atr-cor-css" style="background-color: ${border.cor};
+                color: ${cor_fonte_border}">${border.cor}</code>;</code>`;
                 break;
             }
             break;
@@ -49,13 +71,8 @@ function criaLinha(ling, cod_tipo, tipo, nome, valor){
 
               case 'border-color':
                 border.cor = valor;
-                let cor = getComputedStyle(document.documentElement).getPropertyValue('--c-code-back1');
-
-                if(valor.charAt(cor.length - 2) >= 0 || valor.charAt(cor.length - 1) >= 0){
-                  cor = 'white';
-                }
-
-                valor = `<code class="atr-valor-css" style="background-color: ${valor}; color: ${cor}">${valor}</code>`;
+                analisaCor(border.cor, 'border');
+                valor = `<code class="atr-valor-css" style="background-color: ${valor}; color: ${cor_fonte_border}">${valor}</code>`;
                 break;
 
               case 'border-width':
@@ -64,7 +81,7 @@ function criaLinha(ling, cod_tipo, tipo, nome, valor){
             }
 
             codigo_css += `<br />`;
-            codigo_css += `<code class="linha-css"><code class="atr-css">${nome}:</code> <code class="atr-valor-css">${valor}</code>;</code>`;
+            codigo_css += `<code class="linha-css"><code class="atr-css">${nome}:</code> <code class="atr-valor-css atr-cor-css">${valor}</code>;</code>`;
             break;
         }
 
