@@ -52,6 +52,10 @@ select:hover{
   cursor: pointer;
 }
 
+input, select{
+  margin: 0.5vh 0 2vh;
+}
+
 .col-left{
   left: 7vw;
   position: absolute;
@@ -89,12 +93,28 @@ select:hover{
   height: fit-content;
   border: 1px solid var(--c-cinza-medio);
   border-radius: 10px;
-  padding: 10px 20px;
+  padding: 20px 20px 30px;
   top: -3.5vh;
 }
 
 h3{
-  margin: 0 0 1vh;
+  font-size: 20px;
+  text-align: center;
+  width: fit-content;
+  margin: 0 0 2vh;
+  border-bottom: 2px dashed var(--c-vermelho-claro);
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+
+label{
+  font-family: var(--f-titulo);
+  font-size: 18px;
+  color: var(--c-cinza-medio);
+  margin-left: 10px;
+  display: block;
   -webkit-user-select: none;  
   -moz-user-select: none;    
   -ms-user-select: none;      
@@ -198,12 +218,13 @@ h3{
   background-color: var(--c-code-back1-transp);
   width: 50%;
   height: 7vh;
+  padding: 10px 3.5vw;
   position: fixed;
   bottom: 0;
   z-index: 0;
 }
 
-#code-bloco-html, #code-bloco-css{
+#code-bloco-html, #code-bloco-css, .code-bloco .atr-css{
   color: var(--c-turq-claro);
 }
 
@@ -217,10 +238,6 @@ h3{
 
 .code-bloco .tag-html, .code-bloco .sel-css{
   color: var(--c-rosa-claro);
-}
-
-.code-bloco .atr-css{
-  color: var(--c-azul-claro);
 }
 
 .code-bloco .id-css, .code-bloco .atr-html{

@@ -25,7 +25,7 @@
     </div>
 
     <div class="col-left" id="div-select-tag">
-      <h3>Tag</h3>
+      <label for="sel-tag">Tag</label>
       <select name="tag" id="sel-tag">
         <option value="div">div</option>
         <option value="section">section</option>
@@ -43,14 +43,15 @@
       <section>
         <h3>Fundo</h3>
       </section>
-      
-      <hr>
+
+      <hr />
 
       <section>
         <h3>Bordas</h3>
+        <label for="sel-borda">Estilo</label>
         <select name="estilo-borda" id="sel-borda">
           <option value="solid" name="solida">sólida</option>
-          <option value="dashed" name="tracejada">tracejada</option>
+          <option value="dashed" name="tracejada" selected>tracejada</option>
           <option value="dotted" name="pontilhada">pontilhada</option>
           <option value="double" name="dupla">dupla</option>
           <option value="groove" name="entalhada">entalhada</option>
@@ -58,6 +59,10 @@
           <option value="inset" name="baixo-relevo">baixo relevo</option>
           <option value="outset" name="alto-relevo">alto relevo</option>
         </select>
+
+        <div>
+          <label for="">Tamanho</label>
+        </div>
       </section>
     </div>
   </section>

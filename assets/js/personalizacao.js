@@ -1,14 +1,14 @@
 const conteiner = document.querySelector('#conteiner');
-const border = {
-  estilo: 'dashed',
-  cor: '#320777',
-  tamanho: '2px',
-};
 let codigo_css = '';
 let codigo_html = '';
 let num_linhas_css = 0;
 let num_linhas_html = 0;
 let cor_fonte_border;
+const border = {
+  estilo: 'dashed',
+  cor: '#320777',
+  tamanho: '2px',
+};
 
 function analisaCor(cor_valor, nome){
   let cor;
@@ -162,7 +162,6 @@ document.querySelector('#cbx-red-css').addEventListener('change', function(){
   criaCodigo();
 });
 
-window.addEventListener('load', function(e){
-  criaCodigo('css');
-  criaCodigo('html');
+window.addEventListener('load', function(){
+  criaCodigo();
 });
