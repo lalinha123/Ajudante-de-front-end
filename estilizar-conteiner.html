@@ -47,7 +47,12 @@
       <hr />
 
       <section>
-        <h3>Bordas</h3>
+        <h3>Borda</h3>
+        <div class="div-cbx">
+          <input type="checkbox" onclick="marcaCbx('cbx-borda-tipo-lados')" name="borda-tipo-lados" id="cbx-borda-tipo-lados">
+          <p onclick="marcaCbx('cbx-borda-tipo-lados')">Adicionar mesmo estilo para todos os lados</p>
+        </div>
+
         <label for="sel-borda">Estilo</label>
         <select name="estilo-borda" id="sel-borda">
           <option value="solid" name="solida">sólida</option>
@@ -59,9 +64,7 @@
           <option value="inset" name="baixo-relevo">baixo relevo</option>
           <option value="outset" name="alto-relevo">alto relevo</option>
         </select>
-
         <div>
-          <label for="">Tamanho</label>
         </div>
       </section>
     </div>
@@ -77,7 +80,10 @@
             </code>
           </div>
           <div class="div-config-code">
-            <input type="checkbox" name="cbx-red-css" id="cbx-red-css" value="Código reduzido">
+            <div class="div-cbx">
+              <input type="checkbox" onclick="marcaCbx('cbx-red-css')" name="cbx-red-css" id="cbx-red-css" value="Código reduzido">
+              <p onclick="marcaCbx('cbx-red-css')">Reduzir código</p>
+            </div>
           </div>
         </section>
 
@@ -89,13 +95,12 @@
           </code>
         </div>
         <div class="div-config-code">
-          
         </div>
       </section>
       </div>
-      
     </div>
   </section>
+
   <script src="assets/js/principal.js"></script>
   <script src="assets/js/personalizacao.js"></script>
 </body>

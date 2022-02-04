@@ -146,6 +146,18 @@ function criaCodigo(ling){
   document.querySelector('#code-bloco-html').innerHTML = codigo_html;
 }
 
+function marcaCbx(id){
+  if(document.getElementById(id).checked){
+    document.getElementById(id).checked = false;
+  }
+
+  else{
+    document.getElementById(id).checked = true;
+  }
+
+  criaCodigo();
+}
+
 document.querySelector('#id').addEventListener('change', function(){
   criaCodigo();
 });

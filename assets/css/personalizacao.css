@@ -2,68 +2,11 @@
 
 .titulo-princ{
   color: var(--c-vermelho-claro);
-  font-size: 45px;
+  font-size: 42px;
   font-family: var(--f-titulo2);
   font-weight: normal;
   position: relative;
   top: 3vh;
-}
-
-input{
-  color: var(--c-roxo-escuro);
-  font-family: var(--f-normal);
-  font-size: 17px;
-}
-
-input[type='textbox']{
-  padding: 7px 15px;
-  border: 1px solid var(--c-cinza-medio);
-  border-radius: 25px;
-  outline: none;
-}
-
-input[type='textbox']:focus{
-  outline: 1px solid var(--c-azul-medio);
-}
-
-#div-select-tag{
-  top: 5vh;
-}
-
-select{
-  background-color: var(--c-back);
-  font-size: 17px;
-  width: 15vw;
-  padding: 7px 20px;
-  border: 1px solid var(--c-cinza-medio);
-  border-radius: 20px;
-}
-
-select option{
-  color: var(--c-roxo-escuro);
-  font-family: var(--f-normal);
-  font-size: 17px;
-  border-radius: 10px;
-  padding: 7px 20px;
-  box-shadow: none;
-}
-
-select:hover{
-  cursor: pointer;
-}
-
-input, select{
-  margin: 0.5vh 0 2vh;
-}
-
-.col-left{
-  left: 7vw;
-  position: absolute;
-}
-
-.col-right{
-  right: 7vw;
-  position: absolute;
 }
 
 #sec-princ{
@@ -89,7 +32,7 @@ input, select{
 
 .div-config{
   background-color: var(--c-back);
-  width: 15vw;
+  width: 16vw;
   height: fit-content;
   border: 1px solid var(--c-cinza-medio);
   border-radius: 10px;
@@ -97,8 +40,23 @@ input, select{
   top: -3.5vh;
 }
 
+.col-left{
+  left: 7vw;
+  position: absolute;
+}
+
+.col-right{
+  right: 7vw;
+  position: absolute;
+}
+
+.div-config hr{
+  border: none;
+  border-bottom: 1px solid var(--c-cinza-claro);
+}
+
 h3{
-  font-size: 20px;
+  font-size: 17px;
   text-align: center;
   width: fit-content;
   margin: 0 0 2vh;
@@ -111,7 +69,7 @@ h3{
 
 label{
   font-family: var(--f-titulo);
-  font-size: 18px;
+  font-size: 16px;
   color: var(--c-cinza-medio);
   margin-left: 10px;
   display: block;
@@ -121,9 +79,85 @@ label{
   user-select: none;
 }
 
-.div-config hr{
-  border: none;
-  border-bottom: 1px solid var(--c-cinza-claro);
+input{
+  color: var(--c-roxo-escuro);
+  font-family: var(--f-normal);
+}
+
+input[type='textbox']{
+  padding: 7px 15px;
+  border: 1px solid var(--c-cinza-claro-medio);
+  border-radius: 25px;
+  outline: none;
+}
+
+input[type='textbox']:hover{
+  border: 1px solid var(--c-roxo-escuro);
+}
+
+input[type='textbox']:focus{
+  outline: 1px solid var(--c-azul-medio);
+}
+
+.div-cbx{
+  line-height: 1.5;
+  width: fit-content;
+  height: fit-content;
+  display: block;
+}
+
+.div-cbx>*{
+  display: inline;
+}
+
+.div-cbx p{
+  margin: 0;
+  margin-left: 5px;
+  padding: 0;
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+
+.div-cbx input[type='checkbox']{
+  margin: 0;
+}
+
+.div-cbx:hover, .div-cbx input[type='checkbox']:hover,
+.div-cbx p:hover{
+  cursor: pointer;
+}
+
+select{
+  background-color: var(--c-back);
+  width: 15vw;
+  padding: 7px 20px;
+  border: 1px solid var(--c-cinza-claro-medio);
+  border-radius: 20px;
+}
+
+select option{
+  color: var(--c-roxo-escuro);
+  font-family: var(--f-normal);
+  font-size: 17px;
+  border-radius: 10px;
+  padding: 7px 30px;
+  box-shadow: none;
+}
+
+select:hover{
+  border: 1px solid var(--c-roxo-escuro);
+  cursor: pointer;
+}
+
+input, select, .div-cbx, select option{
+  font-size: 14px;
+  margin: 0.5vh auto 2vh;
+}
+
+#div-select-tag{
+  top: 5vh;
 }
 
 #div-id{
@@ -218,10 +252,16 @@ label{
   background-color: var(--c-code-back1-transp);
   width: 50%;
   height: 7vh;
-  padding: 10px 3.5vw;
+  padding: 10px 2.5vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   position: fixed;
   bottom: 0;
   z-index: 0;
+}
+
+.div-config-code>*{
+  margin: 0;
 }
 
 #code-bloco-html, #code-bloco-css, .code-bloco .atr-css{
