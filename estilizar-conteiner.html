@@ -49,7 +49,7 @@
       <section>
         <h3>Borda</h3>
         <div class="div-cbx">
-          <input type="checkbox" name="borda-tipo-lados" id="cbx-borda-tipo-lados">
+          <input type="checkbox" name="borda-tipo-lados" id="cbx-borda-tipo-lados" checked>
           <p onclick="marcaCbx('cbx-borda-tipo-lados')">Adicionar mesmo estilo para todos os lados</p>
         </div>
 
@@ -64,7 +64,11 @@
           <option value="inset" name="baixo-relevo">baixo relevo</option>
           <option value="outset" name="alto-relevo">alto relevo</option>
         </select>
+
         <div>
+          <label for="clr-border">Cor</label>
+          <input type="textbox" name="txt-cor-border" id="txt-cor-border">
+          <input type="color" name="clr-border" id="clr-border">
         </div>
       </section>
     </div>
@@ -81,7 +85,7 @@
           </div>
           <div class="div-config-code">
             <div class="div-cbx">
-              <input type="checkbox" name="cbx-red-css" id="cbx-red-css" value="Código reduzido">
+              <input type="checkbox" name="cbx-red-css" id="cbx-red-css" value="Código reduzido" checked>
               <p onclick="marcaCbx('cbx-red-css')">Reduzir código</p>
             </div>
           </div>

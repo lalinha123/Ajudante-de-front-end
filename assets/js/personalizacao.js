@@ -1,32 +1,40 @@
 const conteiner = document.querySelector('#conteiner');
+const clr_border = document.querySelector('#clr-border');
 let codigo_css = '';
 let codigo_html = '';
 let num_linhas_css = 0;
 let num_linhas_html = 0;
 let cor_fonte_border;
-const border = {
+
+const border_top = {
   estilo: 'dashed',
   cor: '#320777',
   tamanho: '2px',
 };
 
-function analisaCor(cor_valor, nome){
-  let cor;
+const border_bottom = {
+  estilo: 'dashed',
+  cor: '#320777',
+  tamanho: '2px',
+};
 
-  if(cor_valor.charAt(cor_valor.length - 2) >= 0 || cor_valor.charAt(cor_valor.length - 1) >= 0){
-    cor = 'white';
-  }
+const border_left = {
+  estilo: 'dashed',
+  cor: '#320777',
+  tamanho: '2px',
+};
 
-  else{
-    cor = getComputedStyle(document.documentElement).getPropertyValue('--c-code-back1');
-  }
+const border_right = {
+  estilo: 'dashed',
+  cor: '#320777',
+  tamanho: '2px',
+};
 
-  switch (nome) {
-    case 'border':
-      cor_fonte_border = cor;
-      break;
-  }
-}
+const border = {
+  estilo: 'dashed',
+  cor: '#320777',
+  tamanho: '2px',
+};
 
 function criaLinha(ling, cod_tipo, tipo, nome, valor){
   let nome_tag = document.querySelector('#sel-tag').value;
@@ -53,12 +61,10 @@ function criaLinha(ling, cod_tipo, tipo, nome, valor){
           case 'reduzido':
             switch (nome) {
               case 'border':
-                analisaCor(border.cor, 'border');
                 codigo_css += `<br />`;
                 codigo_css += `<code class="linha-css"><code class="atr-css">${nome}:</code>
                 <code class="atr-valor-css">${border.tamanho} ${border.estilo}
-                <code class="atr-valor-css atr-cor-css" style="background-color: ${border.cor};
-                color: ${cor_fonte_border}">${border.cor}</code>;</code>`;
+                <code class="atr-valor-css atr-cor-css">${border.cor.toUpperCase()}</code>;</code>`;
                 break;
             }
             break;
@@ -71,8 +77,7 @@ function criaLinha(ling, cod_tipo, tipo, nome, valor){
 
               case 'border-color':
                 border.cor = valor;
-                analisaCor(border.cor, 'border');
-                valor = `<code class="atr-valor-css" style="background-color: ${valor}; color: ${cor_fonte_border}">${valor}</code>`;
+                valor = `<code class="atr-valor-css">${border.cor.toUpperCase()}</code>`;
                 break;
 
               case 'border-width':
@@ -112,27 +117,31 @@ function criaLinha(ling, cod_tipo, tipo, nome, valor){
 }
 
 function mudaConteiner(){
-  border.estilo = document.querySelector('#sel-borda').value;
+  if(document.getElementById('cbx-borda-tipo-lados').checked){
+    border.estilo = document.querySelector('#sel-borda').value;
+    border.cor = clr_border.value;
 
-  conteiner.style.borderWidth = border.tamanho;
-  conteiner.style.borderStyle = border.estilo;
-  conteiner.style.borderColor = border.cor;
+    conteiner.style.borderWidth = border.tamanho;
+    conteiner.style.borderStyle = border.estilo;
+    conteiner.style.borderColor = border.cor;
+  }
 }
 
 function criaAtrCss(){
-  if(document.querySelector('#cbx-red-css').checked){
-    criaLinha('css', 'reduzido', 'atributo', 'border');
-  }
+  if(document.getElementById('cbx-borda-tipo-lados').checked){
+    if(document.querySelector('#cbx-red-css').checked){
+      criaLinha('css', 'reduzido', 'atributo', 'border');
+    }
 
-  else{
-    criaLinha('css', 'normal', 'atributo', 'border-style', border.estilo);
-    criaLinha('css', 'normal', 'atributo', 'border-color', border.cor);
-    criaLinha('css', 'normal', 'atributo', 'border-width', border.tamanho);
+    else{
+      criaLinha('css', 'normal', 'atributo', 'border-style', border.estilo);
+      criaLinha('css', 'normal', 'atributo', 'border-color', border.cor);
+      criaLinha('css', 'normal', 'atributo', 'border-width', border.tamanho);
+    }
   }
-  
 }
 
-function criaCodigo(ling){
+function updateCodigo(ling){
   mudaConteiner();
 
   codigo_css = '';
@@ -146,26 +155,6 @@ function criaCodigo(ling){
   document.querySelector('#code-bloco-html').innerHTML = codigo_html;
 }
 
-document.querySelector('#id').addEventListener('change', function(){
-  criaCodigo();
-});
-
-document.querySelector('#sel-tag').addEventListener('change', function(){
-  criaCodigo();
-});
-
-document.querySelector('#sel-borda').addEventListener('change', function(){
-  criaCodigo();
-});
-
-document.querySelector('#cbx-red-css').addEventListener('change', function(){
-  criaCodigo();
-});
-
-window.addEventListener('load', function(){
-  criaCodigo();
-});
-
 function marcaCbx(id){
   if(document.getElementById(id).checked){
     document.getElementById(id).checked = false;
@@ -175,5 +164,20 @@ function marcaCbx(id){
     document.getElementById(id).checked = true;
   }
 
-  criaCodigo();
+  updateCodigo();
 }
+
+clr_border.addEventListener('change', function(e){
+  border.cor = e.target.value;
+  updateCodigo();
+});
+
+document.querySelector('#id').addEventListener('change', updateCodigo);
+
+document.querySelector('#sel-tag').addEventListener('change', updateCodigo);
+
+document.querySelector('#sel-borda').addEventListener('change', updateCodigo);
+
+document.querySelector('#cbx-red-css').addEventListener('change', updateCodigo);
+
+window.addEventListener('load', updateCodigo);

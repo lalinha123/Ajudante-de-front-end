@@ -82,12 +82,12 @@ label{
 input{
   color: var(--c-roxo-escuro);
   font-family: var(--f-normal);
+  border-radius: 25px;
 }
 
 input[type='textbox']{
   padding: 7px 15px;
   border: 1px solid var(--c-cinza-claro-medio);
-  border-radius: 25px;
   outline: none;
 }
 
