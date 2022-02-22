@@ -1,5 +1,6 @@
 const conteiner = document.querySelector('#conteiner');
 const clr_border = document.querySelector('#clr-border');
+const txt_clr_border = document.querySelector('#txt-cor-border');
 let codigo_css = '';
 let codigo_html = '';
 let num_linhas_css = 0;
@@ -64,7 +65,7 @@ function criaLinha(ling, cod_tipo, tipo, nome, valor){
                 codigo_css += `<br />`;
                 codigo_css += `<code class="linha-css"><code class="atr-css">${nome}:</code>
                 <code class="atr-valor-css">${border.tamanho} ${border.estilo}
-                <code class="atr-valor-css atr-cor-css">${border.cor.toUpperCase()}</code>;</code>`;
+                <code class="atr-valor-css atr-cor-css">${border.cor}</code>;</code>`;
                 break;
             }
             break;
@@ -77,7 +78,7 @@ function criaLinha(ling, cod_tipo, tipo, nome, valor){
 
               case 'border-color':
                 border.cor = valor;
-                valor = `<code class="atr-valor-css">${border.cor.toUpperCase()}</code>`;
+                valor = `<code class="atr-valor-css">${border.cor}</code>`;
                 break;
 
               case 'border-width':
@@ -168,7 +169,12 @@ function marcaCbx(id){
 }
 
 clr_border.addEventListener('change', function(e){
-  border.cor = e.target.value;
+  txt_clr_border.value = e.target.value;
+  updateCodigo();
+});
+
+txt_clr_border.addEventListener('change', function(e){
+  clr_border.value = e.target.value;
   updateCodigo();
 });
 
