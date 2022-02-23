@@ -85,14 +85,14 @@ input{
   border-radius: 25px;
 }
 
-input[type='textbox']{
+input[type='textbox'], input[type='number']{
   padding: 7px 15px;
   border: 1px solid var(--c-cinza-claro-medio);
   outline: none;
 }
 
 input[type='textbox']:hover, input[type='textbox']:focus,
-select:hover{
+select:hover, input[type='number']:hover, input[type='number']:focus{
   border: 1px solid var(--c-roxo-escuro);
 }
 
