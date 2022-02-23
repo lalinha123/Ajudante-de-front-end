@@ -91,12 +91,9 @@ input[type='textbox']{
   outline: none;
 }
 
-input[type='textbox']:hover{
+input[type='textbox']:hover, input[type='textbox']:focus,
+select:hover{
   border: 1px solid var(--c-roxo-escuro);
-}
-
-input[type='textbox']:focus{
-  outline: 1px solid var(--c-azul-medio);
 }
 
 .div-cbx{
@@ -147,7 +144,6 @@ select option{
 }
 
 select:hover{
-  border: 1px solid var(--c-roxo-escuro);
   cursor: pointer;
 }
 
