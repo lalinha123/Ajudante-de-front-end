@@ -36,7 +36,7 @@ const border_right = {
 const border = {
   estilo: 'dashed',
   cor: '#320777',
-  tamanho: '2px',
+  tamanho: txt_tam_border.value.toString() + sel_tam_border.value,
 };
 
 function addSelTamanho(id){
@@ -53,7 +53,7 @@ function addSelTamanho(id){
   const opt_pc = document.createElement('option');
 
   opt_px.value = 'px';
-  opt_px.selected = true;
+  opt_px.selected = 'selected';
   opt_px.name = opt_px.value;
   opt_px.text = opt_px.value;
 
@@ -194,7 +194,6 @@ function mudaConteiner(){
   if(document.getElementById('cbx-borda-tipo-lados').checked){
     border.estilo = document.querySelector('#sel-borda').value;
     border.cor = clr_border.value;
-    border.tamanho = txt_tam_border.value.toString() + sel_tam_border.value;
 
     conteiner.style.borderWidth = border.tamanho;
     conteiner.style.borderStyle = border.estilo;
@@ -274,5 +273,4 @@ document.querySelector('#cbx-red-css').addEventListener('change', updateCodigo);
 window.addEventListener('load', function(){
   updateCodigo();
   addSelTamanho(sel_tam_border.id);
-  sel_tam_border.value = 'px';
 });
