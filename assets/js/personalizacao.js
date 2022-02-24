@@ -36,9 +36,10 @@ const border_right = {
 const border = {
   estilo: 'dashed',
   cor: '#320777',
-  tamanho: txt_tam_border.value.toString() + sel_tam_border.value,
+  tamanho: '',
 };
 
+/*
 function addSelTamanho(id){
   const opt_px = document.createElement('option');
   const opt_em = document.createElement('option');
@@ -53,7 +54,6 @@ function addSelTamanho(id){
   const opt_pc = document.createElement('option');
 
   opt_px.value = 'px';
-  opt_px.selected = 'selected';
   opt_px.name = opt_px.value;
   opt_px.text = opt_px.value;
 
@@ -109,6 +109,7 @@ function addSelTamanho(id){
   document.getElementById(id).appendChild(opt_mm);
   document.getElementById(id).appendChild(opt_pc);
 }
+*/
 
 function criaLinha(ling, cod_tipo, tipo, nome, valor){
   let nome_tag = document.querySelector('#sel-tag').value;
@@ -194,6 +195,7 @@ function mudaConteiner(){
   if(document.getElementById('cbx-borda-tipo-lados').checked){
     border.estilo = document.querySelector('#sel-borda').value;
     border.cor = clr_border.value;
+    border.tamanho = txt_tam_border.value.toString() + sel_tam_border.value;
 
     conteiner.style.borderWidth = border.tamanho;
     conteiner.style.borderStyle = border.estilo;

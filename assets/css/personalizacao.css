@@ -91,6 +91,14 @@ input[type='textbox'], input[type='number']{
   outline: none;
 }
 
+input[type="color"]{
+  background-color: var(--c-back);
+  height: 30px;
+  width: 30px;
+  border: 1px solid var(--c-cinza-claro-medio);
+  border-radius: 50%;
+}
+
 input[type='textbox']:hover, input[type='textbox']:focus,
 select:hover, input[type='number']:hover, input[type='number']:focus{
   border: 1px solid var(--c-roxo-escuro);
