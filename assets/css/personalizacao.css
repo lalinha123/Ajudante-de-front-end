@@ -30,6 +30,10 @@
   justify-content: center;
 }
 
+.sec-estilo{
+  display: none;
+}
+
 .div-config{
   background-color: var(--c-back);
   width: 16vw;
@@ -48,6 +52,31 @@
 .col-right{
   right: 7vw;
   position: absolute;
+}
+
+#sidenav-itens{
+  position: absolute;
+  right: 0;
+  top: 2vh;
+}
+
+#sidenav-itens .sidenav-item{
+  background-color: var(--c-back);
+  margin-bottom: 6px;
+  padding: 10px 20px;
+  border: 1px solid var(--c-cinza-medio);
+  border-radius: 25px 0 0 25px;
+  display: block;
+  position: relative;
+  right: -60px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.068);
+  transition: 0.2s;
+  z-index: 1000;
+}
+
+#sidenav-itens .sidenav-item:hover{
+  cursor: pointer;
+  right: 0;
 }
 
 .div-config hr{
@@ -85,7 +114,8 @@ input{
   border-radius: 25px;
 }
 
-input[type='textbox'], input[type='number']{
+input[type='textbox'], input[type='number'], select{
+  color: var(--c-roxo-escuro);
   padding: 7px 15px;
   border: 1px solid var(--c-cinza-claro-medio);
   outline: none;
@@ -137,7 +167,6 @@ select:hover, input[type='number']:hover, input[type='number']:focus{
 select{
   background-color: var(--c-back);
   width: 15vw;
-  padding: 7px 20px;
   border: 1px solid var(--c-cinza-claro-medio);
   border-radius: 20px;
 }

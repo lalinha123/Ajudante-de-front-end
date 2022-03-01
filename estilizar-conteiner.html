@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/est-conteiner.css">
+  <script src="https://kit.fontawesome.com/04cbf46b06.js" crossorigin="anonymous"></script>
   <title>Estilizar contêiner</title>
 </head>
 <body>
@@ -19,34 +20,37 @@
       <div id="conteiner"></div>
     </div>
 
-    <div id="div-id" class="col-left">
-      <p>#</p>
-      <input type='textbox' id="id" value="conteiner" maxlength="45" placeholder="id">
+    <div id="sidenav-itens">
+      <div class="sidenav-item" id="sidenav-item-config" onclick="abreItem('sec-config')">Config</div>
+      <div class="sidenav-item" id="sidenav-item-fundo">Fundo</div>
+      <div class="sidenav-item" id="sidenav-item-border" onclick="abreItem('sec-border')">Borda</div>
+      <div class="sidenav-item" id="sidenav-item-texto">Texto</div>
     </div>
 
-    <div class="col-left" id="div-select-tag">
-      <label for="sel-tag">Tag</label>
-      <select name="tag" id="sel-tag">
-        <option value="div">div</option>
-        <option value="section">section</option>
-        <option value="main">main</option>
-        <option value="header">header</option>
-        <option value="aside">aside</option>
-        <option value="footer">footer</option>
-        <option value="article">article</option>
-        <option value="figure">figure</option>
-        <option value="nav">nav</option>
-      </select>
-    </div>
+    <section id="sec-config" class="sec-estilo">
+      <div id="div-id" class="col-left">
+        <p>#</p>
+        <input type='textbox' id="id" value="conteiner" maxlength="45" placeholder="id">
+      </div>
 
-    <div class="div-config col-right" id="div-estilo">
-      <section>
-        <h3>Fundo</h3>
-      </section>
-
-      <hr />
-
-      <section>
+      <div class="col-left" id="div-select-tag">
+        <label for="sel-tag">Tag</label>
+        <select name="tag" id="sel-tag">
+          <option value="div">div</option>
+          <option value="section">section</option>
+          <option value="main">main</option>
+          <option value="header">header</option>
+          <option value="aside">aside</option>
+          <option value="footer">footer</option>
+          <option value="article">article</option>
+          <option value="figure">figure</option>
+          <option value="nav">nav</option>
+        </select>
+      </div>
+    </section>
+    
+    <section id="sec-border" class="sec-estilo">
+      <div class="div-config col-left">
         <h3>Borda</h3>
         <div class="div-cbx">
           <input type="checkbox" name="borda-tipo-lados" id="cbx-borda-tipo-lados" checked>
@@ -88,8 +92,11 @@
             <option value="pc" name="pc">pc</option>
           </select>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
+    
+
+        
   </section>
 
   <section id="sec-code">
