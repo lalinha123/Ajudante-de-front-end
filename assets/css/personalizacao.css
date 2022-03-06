@@ -30,8 +30,17 @@
   justify-content: center;
 }
 
-.sec-estilo{
+.sec-estilo>*{
   display: none;
+}
+
+.aberto>*{
+  display: block !important;
+  opacity: 0.3;
+}
+
+.aberto>*:hover{
+  opacity: 1;
 }
 
 .div-config{
@@ -166,7 +175,6 @@ select:hover, input[type='number']:hover, input[type='number']:focus{
 
 select{
   background-color: var(--c-back);
-  width: 15vw;
   border: 1px solid var(--c-cinza-claro-medio);
   border-radius: 20px;
 }
@@ -187,6 +195,18 @@ select:hover{
 input, select, .div-cbx, select option{
   font-size: 14px;
   margin: 0.5vh auto 2vh;
+}
+
+.div-est-tamanho{
+  width: 100%;
+  display: flexbox;
+  flex-direction: row;
+}
+
+.div-est-tamanho input, .div-est-tamanho select{
+  position: relative;
+  display: inline;
+  left: 0;
 }
 
 #div-select-tag{

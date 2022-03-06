@@ -9,38 +9,45 @@ let num_linhas_css = 0;
 let num_linhas_html = 0;
 let cor_fonte_border;
 
+const border = {
+  estilo: 'dashed',
+  cor: '#320777',
+  tamanho: '4px',
+};
+
 const border_top = {
   estilo: 'dashed',
   cor: '#320777',
-  tamanho: '2px',
+  tamanho: '4px',
 };
 
 const border_bottom = {
   estilo: 'dashed',
   cor: '#320777',
-  tamanho: '2px',
+  tamanho: '4px',
 };
 
 const border_left = {
   estilo: 'dashed',
   cor: '#320777',
-  tamanho: '2px',
+  tamanho: '4px',
 };
 
 const border_right = {
   estilo: 'dashed',
   cor: '#320777',
-  tamanho: '2px',
-};
-
-const border = {
-  estilo: 'dashed',
-  cor: '#320777',
-  tamanho: '',
+  tamanho: '4px',
 };
 
 function abreItem(id){
-  document.getElementById(id).style.display = 'block';
+  const lista_id_sec = ['sec-config', 'sec-border'];
+
+  for (i = 0; i < lista_id_sec.length; i++) {
+    id_sec = lista_id_sec[i];
+    document.getElementById(id_sec).classList.remove('aberto');
+  }
+
+  document.getElementById(id).classList.add('aberto');
 }
 
 function criaLinha(ling, cod_tipo, tipo, nome, valor){
