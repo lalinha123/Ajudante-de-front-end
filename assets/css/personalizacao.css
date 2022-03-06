@@ -12,55 +12,17 @@
 #sec-princ{
   width: 100%;
   height: 70vh;
-  position: relative;
-  top: 1vh;
-  left: 50%;
-  transform: translateX(-50%);
   z-index: 9;
 }
 
 #div-vis{
   background-color: #fcfcfc;
   width: 100%;
-  height: 100%;
+  height: 85vh;
   padding: 5vh 0;
-  border: 1px solid var(--c-cinza-claro);
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.sec-estilo>*{
-  display: none;
-}
-
-.aberto>*{
-  display: block !important;
-  opacity: 0.3;
-}
-
-.aberto>*:hover{
-  opacity: 1;
-}
-
-.div-config{
-  background-color: var(--c-back);
-  width: 16vw;
-  height: fit-content;
-  border: 1px solid var(--c-cinza-medio);
-  border-radius: 10px;
-  padding: 20px 20px 30px;
-  top: -3.5vh;
-}
-
-.col-left{
-  left: 7vw;
-  position: absolute;
-}
-
-.col-right{
-  right: 7vw;
-  position: absolute;
 }
 
 #sidenav-itens{
@@ -88,9 +50,51 @@
   right: 0;
 }
 
+.sec-estilo{
+  position: absolute;
+  top: 15vh;
+}
+
+.sec-estilo>*{
+  display: none;
+}
+
+.aberto>*{
+  display: block !important;
+  opacity: 0.3;
+}
+
+.aberto>*:hover{
+  opacity: 1;
+}
+
+.div-config{
+  background-color: var(--c-back);
+  width: 16vw;
+  height: fit-content;
+  border: 1px solid var(--c-cinza-medio);
+  border-radius: 10px;
+  padding: 30px 25px;
+  top: 0;
+}
+
 .div-config hr{
   border: none;
   border-bottom: 1px solid var(--c-cinza-claro);
+}
+
+.col-left{
+  left: 7vw;
+  position: absolute;
+}
+
+.col-right{
+  right: 7vw;
+  position: absolute;
+}
+
+.div-categ-estilo{
+  margin: 2vh auto;
 }
 
 h3{
@@ -109,7 +113,6 @@ label{
   font-family: var(--f-titulo);
   font-size: 16px;
   color: var(--c-cinza-medio);
-  margin-left: 10px;
   display: block;
   -webkit-user-select: none;  
   -moz-user-select: none;    
@@ -121,6 +124,10 @@ input{
   color: var(--c-roxo-escuro);
   font-family: var(--f-normal);
   border-radius: 25px;
+}
+
+input:hover{
+  cursor: pointer;
 }
 
 input[type='textbox'], input[type='number'], select{
@@ -240,7 +247,7 @@ input, select, .div-cbx, select option{
   width: 100%;
   height: 60vh;
   position: relative;
-  top: 11vh;
+  top: 25vh;
   display: block;
 }
 
@@ -302,13 +309,12 @@ input, select, .div-cbx, select option{
 }
 
 .div-config-code{
-  background-color: var(--c-code-back1-transp);
   width: 50%;
   height: 7vh;
   padding: 10px 2.5vw;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  position: fixed;
+  position: absolute;
   bottom: 0;
   z-index: 0;
 }

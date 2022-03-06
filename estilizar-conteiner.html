@@ -9,11 +9,6 @@
   <title>Estilizar contêiner</title>
 </head>
 <body>
-  <section id="sec-titulo">
-    <div id="div-titulo-h1" >
-      <h1 class="titulo-princ">Estilizar contêiner</h1>
-    </div>
-  </section>
 
   <section id="sec-princ">
     <div id="div-vis">
@@ -56,7 +51,7 @@
           <p onclick="marcaCbx('cbx-borda-tipo-lados')">Adicionar mesmo estilo para todos os lados</p>
         </div>
 
-        <div>
+        <div class="div-categ-estilo">
           <label for="sel-borda">Estilo</label>
           <select name="estilo-borda" id="sel-borda">
             <option value="solid" name="solida">sólida</option>
@@ -70,7 +65,7 @@
           </select>
         </div>
 
-        <div>
+        <div class="div-categ-estilo">
           <label for="txt-cor-border">Cor</label>
           <div class="div-est-tamanho">
             <input type="textbox" name="txt-cor-border" id="txt-cor-border" value="#320777" size="10">
@@ -78,13 +73,12 @@
           </div>
         </div>
 
-        <div>
+        <div class="div-categ-estilo">
           <label for="txt-tam-border">Tamanho</label>
           <div class="div-est-tamanho">
             <input type="number" name="txt-tam-border" id="txt-tam-border" value="2" min="1" size="6">
             <select name="sel-tam-border" id="sel-tam-border" class="sel-tamanho">
               <option value="px" name="px" selected>px</option>
-              <option value="%" name="porc">%</option>
               <option value="em" name="em">em</option>
               <option value="rem" name="rem">rem</option>
               <option value="vw" name="vw">vw</option>
@@ -96,13 +90,9 @@
               <option value="pc" name="pc">pc</option>
             </select>
           </div>
-          
         </div>
       </div>
     </section>
-    
-
-        
   </section>
 
   <section id="sec-code">
