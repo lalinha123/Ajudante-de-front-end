@@ -58,6 +58,8 @@ function criaLinha(ling, cod_tipo, tipo, nome, valor){
   id = id.replaceAll('#', '',);
 
   function criaCodCss(){
+    ++num_linhas_css;
+
     switch (tipo) {
       case 'seletor':
         if(id === ''){
@@ -67,7 +69,6 @@ function criaLinha(ling, cod_tipo, tipo, nome, valor){
         else{
           codigo_css = `<code class="sel-css id-css">#${id}</code> {`;
         }
-
         break;
 
       case 'atributo':
@@ -81,6 +82,7 @@ function criaLinha(ling, cod_tipo, tipo, nome, valor){
                 <code class="atr-valor-css atr-cor-css">${border.cor}</code>;</code>`;
                 break;
             }
+            
             break;
         
           case 'normal':
@@ -91,7 +93,6 @@ function criaLinha(ling, cod_tipo, tipo, nome, valor){
 
               case 'border-color':
                 border.cor = valor;
-                valor = `<code class="atr-valor-css">${border.cor}</code>`;
                 break;
 
               case 'border-width':
@@ -117,6 +118,7 @@ function criaLinha(ling, cod_tipo, tipo, nome, valor){
 
     codigo_html += `&gt;`;
     codigo_html += `&lt;/<code class="tag-html">${nome_tag}</code>&gt;`;
+    ++num_linhas_html;
   }
 
   switch (ling) {
@@ -154,20 +156,47 @@ function criaAtrCss(){
       criaLinha('css', 'normal', 'atributo', 'border-width', border.tamanho);
     }
   }
+
+  codigo_css += '<br /> }';
+  ++num_linhas_css;
 }
 
-function updateCodigo(ling){
+function criaNumeroLinhas(ling){
+  let linhas;
+  let div;
+
+  switch (ling) {
+    case 'css':
+      linhas = num_linhas_css;
+      div = document.getElementById('div-num-code-css');
+      break;
+
+    case 'html':
+      linhas = num_linhas_html;
+      div = document.getElementById('div-num-code-html');
+      break;
+  }
+
+  for (i = 1; i <= linhas; i++) {
+    const span = document.createElement('span');
+    span.textContent = i.toString();
+    div.appendChild(span);
+  }
+}
+
+function updateCodigo(){
   mudaConteiner();
 
   codigo_css = '';
   criaLinha('css', 'normal', 'seletor');
   criaAtrCss();
-  codigo_css += '<br /> }';
   document.querySelector('#code-bloco-css').innerHTML = codigo_css;
+  criaNumeroLinhas('css');
 
   codigo_html = '';
   criaLinha('html', '');
   document.querySelector('#code-bloco-html').innerHTML = codigo_html;
+  criaNumeroLinhas('html');
 }
 
 function marcaCbx(id){
@@ -214,3 +243,5 @@ document.querySelector('#cbx-red-css').addEventListener('change', updateCodigo);
 window.addEventListener('load', function(){
   updateCodigo();
 });
+
+
