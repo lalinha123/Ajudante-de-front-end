@@ -14,6 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: scroll;
 }
 
 #sidenav-itens{
@@ -52,12 +53,14 @@
 
 .aberto>*{
   display: block !important;
-  opacity: 0.3;
+  /*opacity: 0.3;*/
 }
 
+/*
 .aberto>*:hover{
   opacity: 1;
 }
+*/
 
 .div-config{
   background-color: var(--c-back);
@@ -80,12 +83,12 @@
 }
 
 .col-right{
-  right: 7vw;
+  left: 70vw;
   position: absolute;
 }
 
 .div-categ-estilo{
-  margin: 2vh auto;
+  margin: 1vh auto;
 }
 
 h3{
@@ -285,7 +288,7 @@ input, select, .div-cbx, select option{
 .div-num-code span{
   color: var(--c-code-back2);
   margin: 0 auto;
-  padding: 5px 0;
+  padding: 4.5px 0;
   display: block;
   -webkit-user-select: none;  
   -moz-user-select: none;    

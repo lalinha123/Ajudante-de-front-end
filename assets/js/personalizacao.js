@@ -9,6 +9,11 @@ let num_linhas_css = 0;
 let num_linhas_html = 0;
 let cor_fonte_border;
 
+const cont_tam = {
+  larg: '300px',
+  alt: '300px',
+};
+
 const border = {
   estilo: 'dashed',
   cor: '#320777',
@@ -133,6 +138,10 @@ function criaLinha(ling, cod_tipo, tipo, nome, valor){
 }
 
 function mudaConteiner(){
+  cont_tam.larg = document.getElementById('txt-width').value.toString() + document.getElementById('sel-width').value;
+
+  conteiner.style.width = cont_tam.larg;
+
   if(document.getElementById('cbx-borda-tipo-lados').checked){
     border.estilo = document.querySelector('#sel-borda').value;
     border.cor = clr_border.value;
@@ -185,6 +194,12 @@ function criaNumeroLinhas(ling){
 }
 
 function updateCodigo(){
+  num_linhas_css = 0;
+  num_linhas_html = 0;
+
+  document.getElementById('div-num-code-css').innerHTML = '';
+  document.getElementById('div-num-code-html').innerHTML = '';
+
   mudaConteiner();
 
   codigo_css = '';
@@ -210,6 +225,16 @@ function marcaCbx(id){
 
   updateCodigo();
 }
+
+document.getElementById('txt-width').addEventListener('change', function(e){
+  cont_tam.larg = document.getElementById('txt-width').value.toString() + document.getElementById('sel-width').value;
+  updateCodigo();
+});
+
+document.getElementById('sel-width').addEventListener('change', function(e){
+  cont_tam.larg = document.getElementById('txt-width').value.toString() + document.getElementById('sel-width').value;
+  updateCodigo();
+});
 
 sel_tam_border.addEventListener('change', function(e){
   border.tamanho = txt_tam_border.value.toString() + sel_tam_border.value;
@@ -241,6 +266,7 @@ document.querySelector('#sel-borda').addEventListener('change', updateCodigo);
 document.querySelector('#cbx-red-css').addEventListener('change', updateCodigo);
 
 window.addEventListener('load', function(){
+  document.getElementById('sec-config').classList.add('aberto');
   updateCodigo();
 });
 
