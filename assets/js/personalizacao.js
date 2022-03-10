@@ -65,6 +65,11 @@ function criaLinha(ling, cod_tipo, tipo, nome, valor){
   function criaCodCss(){
     ++num_linhas_css;
 
+    function criaCodigo(){
+      codigo_css += `<br />`;
+      codigo_css += `<code class="linha-css"><code class="atr-css">${nome}:</code> <code class="atr-valor-css atr-cor-css">${valor}</code>;</code>`;
+    }
+
     switch (tipo) {
       case 'seletor':
         if(id === ''){
@@ -86,27 +91,16 @@ function criaLinha(ling, cod_tipo, tipo, nome, valor){
                 <code class="atr-valor-css">${border.tamanho} ${border.estilo}
                 <code class="atr-valor-css atr-cor-css">${border.cor}</code>;</code>`;
                 break;
+
+              default:
+                criaCodigo();
+                break;
             }
             
             break;
         
           case 'normal':
-            switch (nome) {
-              case 'border-style':
-                border.estilo = valor;
-                break;
-
-              case 'border-color':
-                border.cor = valor;
-                break;
-
-              case 'border-width':
-                border.tamanho = valor;
-                break;
-            }
-
-            codigo_css += `<br />`;
-            codigo_css += `<code class="linha-css"><code class="atr-css">${nome}:</code> <code class="atr-valor-css atr-cor-css">${valor}</code>;</code>`;
+            criaCodigo();
             break;
         }
 
@@ -139,8 +133,10 @@ function criaLinha(ling, cod_tipo, tipo, nome, valor){
 
 function mudaConteiner(){
   cont_tam.larg = document.getElementById('txt-width').value.toString() + document.getElementById('sel-width').value;
+  cont_tam.alt = document.getElementById('txt-height').value.toString() + document.getElementById('sel-height').value;
 
   conteiner.style.width = cont_tam.larg;
+  conteiner.style.height  = cont_tam.alt;
 
   if(document.getElementById('cbx-borda-tipo-lados').checked){
     border.estilo = document.querySelector('#sel-borda').value;
@@ -154,6 +150,9 @@ function mudaConteiner(){
 }
 
 function criaAtrCss(){
+  criaLinha('css', 'normal', 'atributo', 'width', cont_tam.larg);
+  criaLinha('css', 'normal', 'atributo', 'height', cont_tam.alt);
+
   if(document.getElementById('cbx-borda-tipo-lados').checked){
     if(document.querySelector('#cbx-red-css').checked){
       criaLinha('css', 'reduzido', 'atributo', 'border');
@@ -233,6 +232,16 @@ document.getElementById('txt-width').addEventListener('change', function(e){
 
 document.getElementById('sel-width').addEventListener('change', function(e){
   cont_tam.larg = document.getElementById('txt-width').value.toString() + document.getElementById('sel-width').value;
+  updateCodigo();
+});
+
+document.getElementById('txt-height').addEventListener('change', function(e){
+  cont_tam.alt = document.getElementById('txt-height').value.toString() + document.getElementById('sel-height').value;
+  updateCodigo();
+});
+
+document.getElementById('sel-height').addEventListener('change', function(e){
+  cont_tam.alt = document.getElementById('txt-height').value.toString() + document.getElementById('sel-height').value;
   updateCodigo();
 });
 
