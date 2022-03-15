@@ -9,9 +9,10 @@ let num_linhas_css = 0;
 let num_linhas_html = 0;
 let cor_fonte_border;
 
-const cont_tam = {
+const cont_config = {
   larg: '300px',
   alt: '300px',
+  canto: '20px',
 };
 
 const border = {
@@ -44,16 +45,7 @@ const border_right = {
   tamanho: '4px',
 };
 
-function abreItem(id){
-  const lista_id_sec = ['sec-config', 'sec-border'];
-
-  for (i = 0; i < lista_id_sec.length; i++) {
-    id_sec = lista_id_sec[i];
-    document.getElementById(id_sec).classList.remove('aberto');
-  }
-
-  document.getElementById(id).classList.add('aberto');
-}
+//----------------------------------------------------------------------------------------------------------------------
 
 function criaLinha(ling, cod_tipo, tipo, nome, valor){
   let nome_tag = document.querySelector('#sel-tag').value;
@@ -62,81 +54,82 @@ function criaLinha(ling, cod_tipo, tipo, nome, valor){
   id = id.replaceAll(',', '',);
   id = id.replaceAll('#', '',);
 
-  function criaCodCss(){
-    ++num_linhas_css;
-
-    function criaCodigo(){
-      codigo_css += `<br />`;
-      codigo_css += `<code class="linha-css"><code class="atr-css">${nome}:</code> <code class="atr-valor-css atr-cor-css">${valor}</code>;</code>`;
-    }
-
-    switch (tipo) {
-      case 'seletor':
-        if(id === ''){
-          codigo_css = `<code class="sel-css">${nome_tag}</code> {`;
-        }
-
-        else{
-          codigo_css = `<code class="sel-css id-css">#${id}</code> {`;
-        }
-        break;
-
-      case 'atributo':
-        switch (cod_tipo) {
-          case 'reduzido':
-            switch (nome) {
-              case 'border':
-                codigo_css += `<br />`;
-                codigo_css += `<code class="linha-css"><code class="atr-css">${nome}:</code>
-                <code class="atr-valor-css">${border.tamanho} ${border.estilo}
-                <code class="atr-valor-css atr-cor-css">${border.cor}</code>;</code>`;
-                break;
-
-              default:
-                criaCodigo();
-                break;
-            }
-            
-            break;
-        
-          case 'normal':
-            criaCodigo();
-            break;
-        }
-
-      break;
-    }
-  }
-
-  function criaCodHtml(){
-    codigo_html += `&lt;<code class="tag-html">${nome_tag}</code>`;
-
-    if(id != ''){
-      codigo_html += ` <code class="atr-html">id</code>="<code class="atr-valor-html">${id}</code>"`;
-    }
-
-    codigo_html += `&gt;`;
-    codigo_html += `&lt;/<code class="tag-html">${nome_tag}</code>&gt;`;
-    ++num_linhas_html;
-  }
-
   switch (ling) {
     case 'css':
-      criaCodCss();
+      ++num_linhas_css;
+
+      function criaCodigo(){
+        codigo_css += `<br />`;
+        codigo_css += `<code class="linha-css"><code class="atr-css">${nome}:</code> <code class="atr-valor-css atr-cor-css">${valor}</code>;</code>`;
+      }
+
+      switch (tipo) {
+        case 'seletor':
+          if(id === ''){
+            codigo_css = `<code class="sel-css">${nome_tag}</code> {`;
+          }
+
+          else{
+            codigo_css = `<code class="sel-css id-css">#${id}</code> {`;
+          }
+          break;
+
+        case 'atributo':
+          switch (cod_tipo) {
+            case 'reduzido':
+              switch (nome) {
+                case 'border':
+                  codigo_css += `<br />`;
+                  codigo_css += `<code class="linha-css"><code class="atr-css">${nome}:</code>
+                  <code class="atr-valor-css">${border.tamanho} ${border.estilo}
+                  <code class="atr-valor-css atr-cor-css">${border.cor}</code>;</code>`;
+                  break;
+
+                default:
+                  criaCodigo();
+                  break;
+              }
+              
+              break;
+          
+            case 'normal':
+              criaCodigo();
+              break;
+          }
+
+        break;
+      }
       break;
 
     case 'html':
-      criaCodHtml();
+      codigo_html += `&lt;<code class="tag-html">${nome_tag}</code>`;
+
+      if(id != ''){
+        codigo_html += ` <code class="atr-html">id</code>="<code class="atr-valor-html">${id}</code>"`;
+      }
+
+      codigo_html += `&gt;`;
+      codigo_html += `&lt;/<code class="tag-html">${nome_tag}</code>&gt;`;
+      ++num_linhas_html;
       break;
   }
 }
 
 function mudaConteiner(){
-  cont_tam.larg = document.getElementById('txt-width').value.toString() + document.getElementById('sel-width').value;
-  cont_tam.alt = document.getElementById('txt-height').value.toString() + document.getElementById('sel-height').value;
+  cont_config.larg = document.getElementById('txt-width').value.toString() + document.getElementById('sel-width').value;
+  cont_config.alt = document.getElementById('txt-height').value.toString() + document.getElementById('sel-height').value;
 
-  conteiner.style.width = cont_tam.larg;
-  conteiner.style.height  = cont_tam.alt;
+  if(document.getElementById('cbx-canto').checked){
+    cont_config.canto = document.getElementById('txt-canto').value.toString() + document.getElementById('sel-canto').value;
+  }
+
+  else{
+    cont_config.canto = 0;
+  }
+
+  conteiner.style.width = cont_config.larg;
+  conteiner.style.height  = cont_config.alt;
+  conteiner.style.borderRadius = cont_config.canto;
 
   if(document.getElementById('cbx-borda-tipo-lados').checked){
     border.estilo = document.querySelector('#sel-borda').value;
@@ -150,8 +143,12 @@ function mudaConteiner(){
 }
 
 function criaAtrCss(){
-  criaLinha('css', 'normal', 'atributo', 'width', cont_tam.larg);
-  criaLinha('css', 'normal', 'atributo', 'height', cont_tam.alt);
+  criaLinha('css', 'normal', 'atributo', 'width', cont_config.larg);
+  criaLinha('css', 'normal', 'atributo', 'height', cont_config.alt);
+
+  if(document.getElementById('cbx-canto').checked){
+    criaLinha('css', 'normal', 'atributo', 'border-radius', cont_config.canto);
+  }
 
   if(document.getElementById('cbx-borda-tipo-lados').checked){
     if(document.querySelector('#cbx-red-css').checked){
@@ -213,6 +210,19 @@ function updateCodigo(){
   criaNumeroLinhas('html');
 }
 
+//----------------------------------------------------------------------------------------------------------------------
+
+function abreItem(id){
+  const lista_id_sec = ['sec-config', 'sec-border'];
+
+  for (i = 0; i < lista_id_sec.length; i++) {
+    id_sec = lista_id_sec[i];
+    document.getElementById(id_sec).classList.remove('aberto');
+  }
+
+  document.getElementById(id).classList.add('aberto');
+}
+
 function marcaCbx(id){
   if(document.getElementById(id).checked){
     document.getElementById(id).checked = false;
@@ -225,58 +235,82 @@ function marcaCbx(id){
   updateCodigo();
 }
 
+function abreDiv(div_id, cbx_id){
+  const id = document.getElementById(div_id);
+  const cbx = document.getElementById(cbx_id);
+
+  if(cbx.checked){
+    id.style.display = 'block';
+  }
+
+  else{
+    id.style.display = 'none';
+  }
+}
+
+function juntaValor(id1, id2, variavel){
+  variavel = document.getElementById(id1).value.toString() + document.getElementById(id2).value.toString();
+  updateCodigo(); 
+};
+
+//----------------------------------------------------------------------------------------------------------------------
+
+const allInputs = document.getElementsByTagName('input');
+const allSlcts = document.getElementsByTagName('select');
+
+for (var i = 0 ; i < allInputs.length; i++) {
+  allInputs[i].addEventListener('change', updateCodigo);
+}
+
+for (var i = 0 ; i < allSlcts.length; i++) {
+  allSlcts[i].addEventListener('change', updateCodigo);
+}
+
+document.getElementById('sel-canto').addEventListener('change', function(e){
+  juntaValor('txt-canto', 'sel-canto', cont_config.canto);
+});
+
+document.getElementById('txt-canto').addEventListener('change', function(e){
+  juntaValor('txt-canto', 'sel-canto', cont_config.canto);
+});
+
 document.getElementById('txt-width').addEventListener('change', function(e){
-  cont_tam.larg = document.getElementById('txt-width').value.toString() + document.getElementById('sel-width').value;
-  updateCodigo();
+  juntaValor('txt-width', 'sel-width', cont_config.larg);
 });
 
 document.getElementById('sel-width').addEventListener('change', function(e){
-  cont_tam.larg = document.getElementById('txt-width').value.toString() + document.getElementById('sel-width').value;
-  updateCodigo();
+  juntaValor('txt-width', 'sel-width', cont_config.larg);
 });
 
 document.getElementById('txt-height').addEventListener('change', function(e){
-  cont_tam.alt = document.getElementById('txt-height').value.toString() + document.getElementById('sel-height').value;
-  updateCodigo();
+  juntaValor('txt-height', 'sel-height', cont_config.larg);
 });
 
 document.getElementById('sel-height').addEventListener('change', function(e){
-  cont_tam.alt = document.getElementById('txt-height').value.toString() + document.getElementById('sel-height').value;
-  updateCodigo();
+  juntaValor('txt-height', 'sel-height', cont_config.larg);
 });
 
 sel_tam_border.addEventListener('change', function(e){
-  border.tamanho = txt_tam_border.value.toString() + sel_tam_border.value;
-  updateCodigo();
+  juntaValor(txt_tam_border.id, sel_tam_border.id, border.tamanho);
 });
 
 txt_tam_border.addEventListener('change', function(e){
-  border.tamanho = txt_tam_border.value.toString() + sel_tam_border.value;
-  updateCodigo();
+  juntaValor(txt_tam_border.id, sel_tam_border.id, border.tamanho);
 });
-
 
 clr_border.addEventListener('change', function(e){
   txt_clr_border.value = e.target.value;
-  updateCodigo();
 });
 
 txt_clr_border.addEventListener('change', function(e){
   clr_border.value = e.target.value;
-  updateCodigo();
 });
-
-document.querySelector('#id').addEventListener('change', updateCodigo);
-
-document.querySelector('#sel-tag').addEventListener('change', updateCodigo);
-
-document.querySelector('#sel-borda').addEventListener('change', updateCodigo);
-
-document.querySelector('#cbx-red-css').addEventListener('change', updateCodigo);
 
 window.addEventListener('load', function(){
   document.getElementById('sec-config').classList.add('aberto');
+  abreDiv('div-sel-canto', 'cbx-canto');
   updateCodigo();
 });
+
 
 

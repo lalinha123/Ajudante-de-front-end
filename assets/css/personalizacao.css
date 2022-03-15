@@ -56,11 +56,9 @@
   /*opacity: 0.3;*/
 }
 
-/*
-.aberto>*:hover{
-  opacity: 1;
+.fechado{
+  display: none;
 }
-*/
 
 .div-config{
   background-color: var(--c-back);
@@ -216,7 +214,7 @@ input, select, .div-cbx, select option{
 
 #div-id{
   position: absolute;
-  top: -3.5vh;
+  top: 2vh;
 }
 
 #div-id>*{
@@ -231,10 +229,6 @@ input, select, .div-cbx, select option{
   -moz-user-select: none;    
   -ms-user-select: none;      
   user-select: none;
-}
-
-#id::before{
-  content: 'aaaa';
 }
 
 #sec-code{
